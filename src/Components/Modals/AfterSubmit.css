@@ -1,0 +1,13 @@
+.custom-btn {
+    width: 100px;
+    background-color: hsl(127, 54%, 50%);
+    color: white;
+    border: none; 
+}
+.custom-btn:hover {
+    background-color: hsl(127, 54%, 40%);
+    color: white;
+}
+.modal-content{
+    margin-top: 100px;
+}   

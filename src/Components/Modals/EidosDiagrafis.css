@@ -1,0 +1,11 @@
+textarea {
+    resize: none;
+    height: 80px;
+}
+.btn-full-width {
+    width: 97%;
+    margin-left: 7px; 
+}
+.btn-close{
+    border: px solid black;
+}

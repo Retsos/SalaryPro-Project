@@ -1,0 +1,25 @@
+.footer {
+  background-color: #98badc;
+  text-align: center;
+  position: relative; 
+  width: 100%;  
+  padding: 10px 0; 
+  bottom: 0;
+  z-index: 111;
+  flex-shrink: 0; /* Ensures the footer doesn't shrink */
+}
+
+.footer-content p {
+  margin: 5px 0; 
+  color: #6c757d;
+}
+
+.footer-content a {
+  color: #007bff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+
+.footer-content a:hover {
+  text-decoration: underline;
+}

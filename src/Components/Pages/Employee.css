@@ -1,0 +1,43 @@
+.content {
+  flex-grow: 1;
+  padding: 20px;
+  overflow-y: auto; 
+}
+
+.mb-3 input[type="number"]::-webkit-outer-spin-button,
+.mb-3 input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+input[type="date"]::-webkit-inner-spin-button,
+input[type="date"]::-webkit-calendar-picker-indicator {
+    display: none;
+}
+input[type="date"] {
+    -moz-appearance: textfield;
+    appearance: textfield;
+    color: #413f3f;
+}
+.form-control {
+    background: transparent;
+    border: none;
+    border: 1px solid #ccc; 
+    box-shadow: none;
+    color:    #413f3f;
+  }
+  
+.form-control:focus,
+.form-control:active {
+    background: transparent;
+    color: #413f3f;
+    outline: none;
+}
+.form-control, .form-select {
+  background: transparent;
+  border: none;
+  border: 1px solid #413f3f; 
+  box-shadow: none;
+}
+.form-control:focus, .form-select:focus {
+  outline: none;
+}
