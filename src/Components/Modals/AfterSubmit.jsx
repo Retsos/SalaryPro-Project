@@ -29,7 +29,7 @@ export default function AfterSubmit({ showModal, setShowModal }) {
     if (!showModal) return null;
     
     return (
-        <div className={`modal fade ${showModal ? 'show d-block' : ''}`} tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <div className={`modal fade ${showModal ? 'show d-block' : ''}`} tabIndex="-1" aria-labelledby="exampleModalLabel" >
             <div className="modal-dialog">
                 <div className="modal-content">
                     <div className="modal-header">

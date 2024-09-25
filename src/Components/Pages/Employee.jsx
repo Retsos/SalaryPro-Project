@@ -1,15 +1,16 @@
-import React, { useState, useContext } from 'react';
+import React, { useState, useContext,useRef } from 'react';
 import { EmployeeContext } from './EmployeeProvider';
 import './Employee.css';
 import AfterSubmit from '../Modals/AfterSubmit';
 
 export default function Employee() {
-    
+
     const [showModal2, setShowModal2] = useState(false);
-    const {setYpalliloi} = useContext(EmployeeContext);
+    const { setYpalliloi } = useContext(EmployeeContext);
     const [name, setName] = useState("");
     const [epitheto, setEpitheto] = useState("");
     const [code, setCode] = useState("");
+    const ref =useRef(null);
 
     function handleAddYpallilos() {
         const NewYpallilos = {
@@ -39,19 +40,18 @@ export default function Employee() {
             setName("");
             setEpitheto("");
             setCode("");
-            window.scrollTo({
+            setShowModal2(true);
+            ref.current.scrollTo({
                 top: 0,
                 behavior: 'smooth'
-            });
-            setShowModal2(true);  
+            })
         } else {
             console.log("ERROR");
         }
     }
-
     return (
-        <>  
-            <div className="content">
+        <>
+            <div className="content" ref={ref}>
                 <div className="container mt-3">
                     <h1 className="text-center">Στοιχεία Εργαζομένου</h1>
                 </div>
@@ -152,7 +152,7 @@ export default function Employee() {
                                     <label htmlFor="formEmployeeChildAnapira" className="form-label">Αριθμός ανάπηρων παιδιών</label>
                                     <input type="text" className="form-control" id="formEmployeeChildAnapira" placeholder="" />
                                 </div>
-                                <h3 style={{marginTop: "60px"}}>Τυπικά Προσόντα</h3>
+                                <h3 style={{ marginTop: "60px" }}>Τυπικά Προσόντα</h3>
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeEducation" className="form-label">Εκπαίδευση</label>
                                     <select className="form-select" id="formEmployeeEducation">
