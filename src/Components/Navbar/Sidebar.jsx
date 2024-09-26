@@ -1,10 +1,13 @@
-import React from 'react';
+import React, { useState } from 'react';
 import './Sidebar.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
+import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";  
 
 export default function Sidebar() {
     const location = useLocation();
     const navigate = useNavigate();
+
+    const [dropdownOpen, setDropdownOpen] = useState(false); 
 
     const handleLogoutClick = () => {
         navigate('/LoginPage');
@@ -22,6 +25,9 @@ export default function Sidebar() {
             </li>
         );
     }
+    const toggleDropdown = () => {
+        setDropdownOpen(!dropdownOpen); 
+    };
 
     return (
         <div className="sidebar">
@@ -33,7 +39,21 @@ export default function Sidebar() {
             <ul className="nav navibar">
                 <CustomLink to="/Employers">Οι Υπάλληλοι μου</CustomLink>
                 <CustomLink to="/Employee">Νέος Υπάλληλος</CustomLink>
-                <CustomLink to="#">Link</CustomLink>
+                <li className="nav-item">
+                    <button 
+                        className="nav-link text-white text-decoration-none" 
+                        onClick={toggleDropdown} 
+                        style={{ width: "100%" }}
+                    >
+                        Dropdown {dropdownOpen ? <IoMdArrowDropdown /> : <IoMdArrowDropright />} 
+                    </button>
+                </li>
+                <div className={`dropdown-content ${dropdownOpen ? 'open' : ''}`}>
+                    <CustomLink to="/Action1">Action 1</CustomLink>
+                    <CustomLink to="/Action2">Action 2</CustomLink>
+                    <CustomLink to="/Action3">Action 3</CustomLink>
+                </div>
+                <CustomLink to="/Employee">Νέος Υπάλληλος</CustomLink>
             </ul>
             <button className="logout-btn" onClick={handleLogoutClick}>
                 Logout
