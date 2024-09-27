@@ -1,12 +1,10 @@
 .sidebar {
     background-color: #343a40;
-    width: 250px; /* Fixed sidebar width */
-    height: 100vh; /* Full height of the viewport */
+    width: 15%;
+    height: 100vh;
     display: flex;
     flex-direction: column;
-    position: fixed; /* Ensure the sidebar stays fixed */
-    left: 0;
-    top: 0;
+    position: fixed;
 }
 .sidebar-header {
     padding: 20px;
@@ -19,7 +17,6 @@
     color: white;
 }
 .navibar {
-    padding-left: 0;
     margin-top: 20px;
 }
 .navibar .nav-item {
@@ -65,4 +62,16 @@
 button.nav-link.dropdown-toggle::after {
     display: none; /* Κρύβει το προεπιλεγμένο βελάκι του Bootstrap */
     transition: 0.5s ease-in-out, opacity 0.5s ease-in-out;
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 768px) {
+    .sidebar {
+        width: 25%;
+    }
+    .sidebar-header {
+        padding: 10px;
+    }
+    .custome-logo {
+        font-size: 1rem;
+    }
 }

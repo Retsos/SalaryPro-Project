@@ -36,7 +36,7 @@ export default function Sidebar() {
                     <span className="custome-logo">SalaryPro</span>
                 </Link>
             </div>
-            <ul className="nav navibar">
+            <ul className="nav flex-column navibar">
                 <CustomLink to="/Employers">Οι Υπάλληλοι μου</CustomLink>
                 <CustomLink to="/Employee">Νέος Υπάλληλος</CustomLink>
                 <li className="nav-item">
