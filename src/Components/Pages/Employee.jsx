@@ -10,6 +10,10 @@ export default function Employee() {
     const [name, setName] = useState("");
     const [epitheto, setEpitheto] = useState("");
     const [code, setCode] = useState("");
+    const [isMarried, setIsMarried] = useState(false);
+    const [OnomaSizigoy, setOnomaSizigoy] = useState("");
+    const [EpithetoSizigoy, setEpithetoSizigoy] = useState("");
+
     const ref =useRef(null);
 
     function handleAddYpallilos() {
@@ -32,6 +36,21 @@ export default function Employee() {
     function handleCodeChange(event) {
         setCode(event.target.value);
     }
+    function handleOnomaSizigoyChange(event) {
+        setOnomaSizigoy(event.target.value);
+    }
+    function handleEpithetoSizigoyChange(event) {
+        setEpithetoSizigoy(event.target.value);
+    }
+    function handleMarriedChange(event) {
+        setIsMarried(event.target.value === 'Έγγαμος');
+        if(isMarried!="Έγγαμος"){
+            setEpithetoSizigoy("");
+            setOnomaSizigoy("");
+        }
+    }
+    const getDisabledClass = (isEnabled) => (isEnabled ? '' : 'disabled-field');
+
 
     function handleSubmit(event) {
         event.preventDefault();
@@ -122,19 +141,19 @@ export default function Employee() {
                                 <h3>Οικογενειακά Στοιχεία</h3>
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeFAMILY" className="form-label">Οικογενειακή κατάσταση</label>
-                                    <select className="form-select" id="formEmployeeFAMILY">
+                                    <select className="form-select" id="formEmployeeFAMILY" value={isMarried} onChange={handleMarriedChange}>
                                         <option value=""></option>
                                         <option value="Έγγαμος">Έγγαμος</option>
                                         <option value="Άγαμος">Άγαμος</option>
                                     </select>
                                 </div>
-                                <div className="mb-3">
-                                    <label htmlFor="formEmployeeHUSBANDNAME" className="form-label">Όνομα Συζήγου</label>
-                                    <input type="text" className="form-control" id="formEmployeeHUSBANDNAME" placeholder="" />
+                                <div className={`mb-3 ${getDisabledClass(isMarried)}`}>
+                                    <label htmlFor="formEmployeeHUSBANDNAME" className="form-label">Όνομα Συζύγου</label>
+                                    <input type="text" className="form-control" id="formEmployeeHUSBANDNAME" value={OnomaSizigoy} onChange={handleOnomaSizigoyChange} placeholder="" disabled={!isMarried} required={isMarried}/>
                                 </div>
-                                <div className="mb-3">
-                                    <label htmlFor="formEmployeeHusbandSurname" className="form-label">Επίθετο Συζήγου</label>
-                                    <input type="text" className="form-control" id="formEmployeeHusbandSurname" placeholder="" />
+                                <div className={`mb-3 ${getDisabledClass(isMarried)}`}>
+                                    <label htmlFor="formEmployeeHusbandSurname" className="form-label">Επίθετο Συζύγου</label>
+                                    <input type="text" className="form-control" id="formEmployeeHusbandSurname" value={EpithetoSizigoy} onChange={handleEpithetoSizigoyChange} placeholder="" disabled={!isMarried} required={isMarried}/>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeChild" className="form-label">Αριθμός παιδιών</label>

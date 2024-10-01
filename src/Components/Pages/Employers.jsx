@@ -22,7 +22,8 @@ export default function Employers() {
     return (
         <>
             <div className="content">
-                <table className="table">
+
+                <table className="table custome-table">
                     <thead>
                         <tr>
                             <th scope="col">#</th>
@@ -30,7 +31,8 @@ export default function Employers() {
                             <th scope="col">Όνομα</th>
                             <th scope="col">Επίθετο</th>
                             <th scope="col">Διαγραφές</th>
-                        </tr>
+                            <th scope="col">Επεξεργασία</th>
+                       </tr>
                     </thead>
                     <tbody>
                         {Ypalliloi.map((ypallilos, index) => (
@@ -46,6 +48,15 @@ export default function Employers() {
                                         onClick={() => handleDeleteClick(index)}
                                     >
                                         Διαγραφή
+                                    </button>
+                                </td>
+                                <td>
+                                    <button
+                                        type="button"
+                                        className="btn btn-outline-secondary"
+                                        onClick={() => handleDeleteClick(index)}
+                                    >
+                                        Αλλαγή Στοιχείων
                                     </button>
                                 </td>
                             </tr>
