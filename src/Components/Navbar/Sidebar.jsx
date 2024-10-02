@@ -38,7 +38,7 @@ export default function Sidebar() {
             </div>
             <ul className="nav flex-column navibar">
                 <CustomLink to="/Employers">Οι Υπάλληλοι μου</CustomLink>
-                <CustomLink to="/Employee">Νέος Υπάλληλος</CustomLink>
+                <CustomLink to="/Employee">Προσθήκη Νέου Υπαλλήλου</CustomLink>
                 <li className="nav-item">
                     <button 
                         className="nav-link text-white text-decoration-none" 
@@ -53,7 +53,6 @@ export default function Sidebar() {
                     <CustomLink to="/Action2">Action 2</CustomLink>
                     <CustomLink to="/Action3">Action 3</CustomLink>
                 </div>
-                <CustomLink to="/Employee">Νέος Υπάλληλος</CustomLink>
             </ul>
             <button className="logout-btn" onClick={handleLogoutClick}>
                 Logout

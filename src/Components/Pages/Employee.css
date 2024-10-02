@@ -4,9 +4,13 @@
   overflow-y: auto; 
   cursor: default;
 }
-
 .mb-3 input[type="number"]::-webkit-outer-spin-button,
 .mb-3 input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+.code input[type="number"]::-webkit-outer-spin-button,
+.code input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
