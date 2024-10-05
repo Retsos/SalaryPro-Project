@@ -142,6 +142,7 @@ export default function Employee() {
                                     <input type="date" className="form-control" id="formEmployeeDateBorn" placeholder="" />
                                 </div>
                             </div>
+                            
                             <div className="col-12 col-md-6 p-3">
                                 <h3>Οικογενειακά Στοιχεία</h3>
                                 <div className="mb-3">
@@ -177,8 +178,9 @@ export default function Employee() {
                                     <input type="text" className="form-control" id="formEmployeeChildAnapira" placeholder="" />
                                 </div>
                             </div>
+
                             <div className="col-12">
-                                <h3 className='text-center'>Στοιχεία Μόρφωσης</h3>
+                                <h3 className='text-center' style={{marginTop: "2%",marginBottom: "-1.5%",borderTop: "1px solid black",paddingTop: "2%"}}>Στοιχεία Μόρφωσης</h3>
                                 <div className="row">
                                     <div className="col-md-6 mb-3">
                                         <label htmlFor="formEmployeeEducation" className="form-label">Εκπαίδευση</label>
@@ -197,7 +199,7 @@ export default function Employee() {
                             </div>
 
                             <div className="col-12">
-                                <h3 className='text-center'>Στοιχεία Ταυτότητας</h3>
+                                <h3 className='text-center' style={{marginTop: "5%",marginBottom: "-1.5%",borderTop: "1px solid black",paddingTop: "2%"}}>Στοιχεία Ταυτότητας</h3>
                                 <div className="row">
                                     <div className="col-md-6 mb-3">
                                         <label htmlFor="formEmployeeId" className="form-label">Είδος Ταυτότητας</label>

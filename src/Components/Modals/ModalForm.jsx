@@ -39,7 +39,7 @@ export default function ModalForm() {
   };
 
   const handleLoginClick = () => {
-    navigate('/MainPage');
+    navigate('/Employers');
   };
 
   const handleFormSwitch = () => {
