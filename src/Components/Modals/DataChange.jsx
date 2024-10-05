@@ -1,15 +1,8 @@
-import React, { useState, useEffect } from 'react'
+import React, { useEffect } from 'react';
 import './DataChange.css';
 
-
-
 export default function DataChange({ showModal2, setShowModal2 }) {
-
-
-
     const handleClose = () => setShowModal2(false);
-
-
 
     useEffect(() => {
         if (showModal2) {
@@ -33,17 +26,16 @@ export default function DataChange({ showModal2, setShowModal2 }) {
         };
     }, [showModal2]);
 
-
-
     if (!showModal2) return null;
+
     return (
         <>
-            <div className="modal show" style={{ display: 'block'}} tabIndex="-1" aria-labelledby="exampleModalLabel">
-                <div className="modal-dialog-centered modal-lg">
+            <div className="modal show custome-modal" style={{ display: 'block' }} tabIndex="-1" aria-labelledby="exampleModalLabel">
+                <div className="modal-dialog modal-dialog-centered custom-modal-width">
                     <div className="modal-content">
                         <div className="modal-header">
                             <h3 className="modal-title fs-5" id="exampleModalLabel">Modal title</h3>
-                            <button type="button" onClick={handleClose} className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                            <button type="button" onClick={handleClose} className="btn-close" aria-label="Close"></button>
                         </div>
                         <div className="modal-body">
                             ...
@@ -54,7 +46,6 @@ export default function DataChange({ showModal2, setShowModal2 }) {
                     </div>
                 </div>
             </div>
-
         </>
-    )
+    );
 }
