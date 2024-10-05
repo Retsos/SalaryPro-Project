@@ -1,17 +1,25 @@
 import React, { useState,useContext } from 'react';
 import { EmployeeContext } from './EmployeeProvider';
 import EidosDiagrafis  from '../Modals/EidosDiagrafis';
+import DataChange from './../Modals/DataChnage.jsx'
 import './Employers.css'
 
 export default function Employers() {
     const { Ypalliloi, setYpalliloi } = useContext(EmployeeContext);
     const [showModal, setShowModal] = useState(false);
+    const [showModal2, setShowModal2] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(null);
 
     const handleDeleteClick = (index) => {
         setSelectedIndex(index);
         setShowModal(true);
     };
+
+    const handleChangeClick = (index) => {
+        setSelectedIndex(index);
+        setShowModal2(true);
+    };
+
 
     const handleConfirmDelete = () => {
         if (selectedIndex !== null) {
@@ -54,7 +62,7 @@ export default function Employers() {
                                     <button
                                         type="button"
                                         className="btn btn-outline-secondary"
-                                        onClick={() => handleDeleteClick(index)}
+                                        onClick={() => handleChangeClick(index)}
                                     >
                                         Αλλαγή Στοιχείων
                                     </button>
@@ -69,6 +77,10 @@ export default function Employers() {
                 setShowModal={setShowModal}
                 onConfirm={handleConfirmDelete}
             />
+            <DataChange
+                showModal2={showModal2}
+                setShowModal2={setShowModal2}
+            ></DataChange>
         </>
     );
 }

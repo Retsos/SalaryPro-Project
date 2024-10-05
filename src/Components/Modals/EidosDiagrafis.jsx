@@ -59,7 +59,7 @@ export default function EidosDiagrafis({ showModal, setShowModal, onConfirm }) {
     if (!showModal) return null;
 
     return (
-        <div className="modal show" style={{ display: 'block' }} tabIndex="-1" aria-labelledby="modalLabel">
+        <div className="modal show" style={{ display: 'block'}} tabIndex="-1" aria-labelledby="modalLabel">
             <div className="modal-dialog modal-dialog-centered">
                 <div className="modal-content">
                     <div className="modal-header">

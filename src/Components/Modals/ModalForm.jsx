@@ -1,7 +1,6 @@
 import React, { useState, useContext } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './ModalForm.css';
-import Navbar from './../Navbar/navbar';
 import { IoEye, IoEyeOff } from "react-icons/io5";
 import { UsernameContext } from './../Pages/UsernameContext';  
 
