@@ -1,8 +1,8 @@
-import React, { useState,useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { EmployeeContext } from './EmployeeProvider';
-import EidosDiagrafis  from '../Modals/EidosDiagrafis';
-import DataChange from '../Modals/DataChange.jsx'
-import './Employers.css'
+import EidosDiagrafis from '../Modals/EidosDiagrafis';
+import DataChange from '../Modals/DataChange.jsx';
+import './Employers.css';
 
 export default function Employers() {
     const { Ypalliloi, setYpalliloi } = useContext(EmployeeContext);
@@ -20,17 +20,18 @@ export default function Employers() {
         setShowModal2(true);
     };
 
-
     const handleConfirmDelete = () => {
         if (selectedIndex !== null) {
             setYpalliloi(Ypalliloi.filter((_, i) => i !== selectedIndex));
             setSelectedIndex(null);
         }
     };
+
+    const selectedYpallilos = selectedIndex !== null ? Ypalliloi[selectedIndex] : null;
+
     return (
         <>
             <div className="content">
-
                 <table className="table custome-table">
                     <thead>
                         <tr>
@@ -40,7 +41,7 @@ export default function Employers() {
                             <th scope="col">Επίθετο</th>
                             <th scope="col">Διαγραφές</th>
                             <th scope="col">Επεξεργασία</th>
-                       </tr>
+                        </tr>
                     </thead>
                     <tbody>
                         {Ypalliloi.map((ypallilos, index) => (
@@ -80,7 +81,8 @@ export default function Employers() {
             <DataChange
                 showModal2={showModal2}
                 setShowModal2={setShowModal2}
-            ></DataChange>
+                ypallilos={selectedYpallilos} // Πέρασμα του επιλεγμένου υπαλλήλου
+            />
         </>
     );
 }

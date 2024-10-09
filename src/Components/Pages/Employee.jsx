@@ -10,6 +10,25 @@ export default function Employee() {
     const [name, setName] = useState("");
     const [epitheto, setEpitheto] = useState("");
     const [code, setCode] = useState("");
+    const [fathername, setfathername] = useState("");
+    const [mothername, setmothername] = useState("");
+    const [surfathername, setsurfathername] = useState("");
+    const [surmothername, setsurmothername] = useState("");
+    const [gender, setgender] = useState("");
+    const [AFM, setAFM] = useState("");
+    const [AMA, setAMA] = useState("");
+    const [anapiros, setanapiros] = useState("");
+    const [dateborn, setdateborn] = useState("");
+    const [children, setchildren] = useState("");
+    const [childrenFMY, setchildrenFMY] = useState("");
+    const [childrenSSE, setchildrenSSE] = useState("");
+    const [Education, setEducation] = useState("");
+    const [Job, setJob] = useState("");
+    const [IdType, setIdType] = useState("");
+    const [IdNumber, setIdNumber] = useState("");
+    const [IdDate, setIdDate] = useState("");
+    const [IdPlace, setIdPlace] = useState("");
+    const [childrenANAPIRA, setchildrenANAPIRA] = useState("");
     const [isMarried, setIsMarried] = useState("");
     const [OnomaSizigoy, setOnomaSizigoy] = useState("");
     const [EpithetoSizigoy, setEpithetoSizigoy] = useState("");
@@ -24,15 +43,12 @@ export default function Employee() {
         };
         setYpalliloi(prevYpalliloi => [...prevYpalliloi, NewYpallilos]);
     }
-
     function handleNameChange(event) {
         setName(event.target.value);
     }
-
     function handleEpithetoChange(event) {
         setEpitheto(event.target.value);
     }
-
     function handleCodeChange(event) {
         setCode(event.target.value);
     }
@@ -41,6 +57,80 @@ export default function Employee() {
     }
     function handleEpithetoSizigoyChange(event) {
         setEpithetoSizigoy(event.target.value);
+    }
+    function handleFathernameChange(event) {
+        setfathername(event.target.value);
+    }
+    
+    function handleFatherSurnameChange(event) {
+        setfathername(event.target.value);
+    }
+
+    function handleMothernameChange(event) {
+        setmothername(event.target.value);
+    }
+
+    function handleMotherSurnameChange(event) {
+        setmothername(event.target.value);
+    }
+
+    function handleGenderChange(event) {
+        setgender(event.target.value);
+    }
+
+    function handleAFMChange(event) {
+        setAFM(event.target.value);
+    }
+
+    function handleAMAChange(event) {
+        setAMA(event.target.value);
+    }
+
+    function handleAnapirosChange(event) {
+        setanapiros(event.target.value);
+    }
+
+    function handleDateBornChange(event) {
+        setdateborn(event.target.value);
+    }
+    function handleChildrenChange(event) {
+        setchildren(event.target.value);
+    }
+
+    function handleChildrenFMYChange(event) {
+        setchildrenFMY(event.target.value);
+    }
+
+    function handleChildrenSSEChange(event) {
+        setchildrenSSE(event.target.value);
+    }
+
+    function handleChildrenANAPIRAChange(event) {
+        setchildrenANAPIRA(event.target.value);
+    }
+
+    function handleEducationChange(event) {
+        setEducation(event.target.value);
+    }
+
+    function handleJobChange(event) {
+        setJob(event.target.value);
+    }
+
+    function handleIdTypeChange(event) {
+        setIdType(event.target.value);
+    }
+
+    function handleIdNumberChange(event) {
+        setIdNumber(event.target.value);
+    }
+
+    function handleIdDateChange(event) {
+        setIdDate(event.target.value);
+    }
+
+    function handleIdPlaceChange(event) {
+        setIdPlace(event.target.value);
     }
     function handleMarriedChange(event) {
         const value = event.target.value;
@@ -99,39 +189,40 @@ export default function Employee() {
                                 <h3>Προσωπικά Στοιχεία</h3>
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeFathername" className="form-label">Όνομα Πατέρα</label>
-                                    <input type="text" className="form-control" id="formEmployeeFathername" placeholder="" />
+                                    <input type="text" className="form-control" id="formEmployeeFathername" placeholder="" value={fathername} onChange={handleFathernameChange}/>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeFathersurname" className="form-label">Επίθετο Πατέρα</label>
-                                    <input type="text" className="form-control" id="formEmployeeFathersurname" placeholder="" />
+                                    <input type="text" className="form-control" id="formEmployeeFathersurname" placeholder="" value={surfathername} onChange={handleFatherSurnameChange}/>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeMothername" className="form-label">Όνομα Μητέρας</label>
-                                    <input type="text" className="form-control" id="formEmployeeMothername" placeholder="" />
+                                    <input type="text" className="form-control" id="formEmployeeMothername" placeholder="" value={mothername} onChange={handleMothernameChange}/>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeMothersurname" className="form-label">Επίθετο Μητέρας</label>
-                                    <input type="text" className="form-control" id="formEmployeeMothersurname" placeholder="" />
+                                    <input type="text" className="form-control" id="formEmployeeMothersurname" placeholder="" value={surmothername} onChange={handleMotherSurnameChange}/>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeGender" className="form-label">Φύλο</label>
-                                    <select className="form-select" id="formEmployeeGender">
+                                    <select className="form-select" id="formEmployeeGender" value={gender} onChange={handleGenderChange}>
                                         <option value=""></option>
                                         <option value="male">Άνδρας</option>
                                         <option value="female">Γυναίκα</option>
                                     </select>
                                 </div>
+
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeAFM" className="form-label">Α.Φ.Μ.</label>
-                                    <input type="number" className="form-control" id="formEmployeeAFM" />
+                                    <input type="number" className="form-control" id="formEmployeeAFM" value={AFM} onChange={handleAFMChange} />
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeAMA" className="form-label">A.M.A</label>
-                                    <input type="number" className="form-control" id="formEmployeeAMA" />
+                                    <input type="number" className="form-control" id="formEmployeeAMA" value={AMA} onChange={handleAMAChange}/>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeAnapiros" className="form-label">Ανάπηρος</label>
-                                    <select className="form-select" id="formEmployeeAnapiros">
+                                    <select className="form-select" id="formEmployeeAnapiros" value={anapiros} onChange={handleAnapirosChange}>
                                         <option value=""></option>
                                         <option value="yes">Ναι</option>
                                         <option value="no">Όχι</option>
@@ -139,15 +230,15 @@ export default function Employee() {
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeDateBorn" className="form-label">Ημερομηνία Γέννησης</label>
-                                    <input type="date" className="form-control" id="formEmployeeDateBorn" placeholder="" />
+                                    <input type="date" className="form-control" id="formEmployeeDateBorn" placeholder=""value={dateborn} onChange={handleDateBornChange} />
                                 </div>
                             </div>
                             
                             <div className="col-12 col-md-6 p-3">
                                 <h3>Οικογενειακά Στοιχεία</h3>
                                 <div className="mb-3">
-                                    <label htmlFor="formEmployeeFAMILY" className="form-label">Οικογενειακή κατάσταση</label>
-                                    <select className="form-select" id="formEmployeeFAMILY" value={isMarried} onChange={handleMarriedChange}>
+                                    <label htmlFor="formEmployeeFAMILYstatus" className="form-label">Οικογενειακή κατάσταση</label>
+                                    <select className="form-select" id="formEmployeeFAMILYstatus" value={isMarried} onChange={handleMarriedChange}>
                                         <option value=""></option>
                                         <option value="Έγγαμος">Έγγαμος</option>
                                         <option value="Άγαμος">Άγαμος</option>
@@ -163,19 +254,19 @@ export default function Employee() {
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeChild" className="form-label">Αριθμός παιδιών</label>
-                                    <input type="number" className="form-control" id="formEmployeeChild" />
+                                    <input type="number" className="form-control" id="formEmployeeChild" value={children} onChange={handleChildrenChange}/>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeChildFMY" className="form-label">Αριθμός παιδιών για Φ.Μ.Υ.</label>
-                                    <input type="number" className="form-control" id="formEmployeeChildFMY" />
+                                    <input type="number" className="form-control" id="formEmployeeChildFMY" value={childrenFMY} onChange={handleChildrenFMYChange}/>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeChildSSE" className="form-label">Αριθμός παιδιών για Σ.Σ.Ε</label>
-                                    <input type="number" className="form-control" id="formEmployeeChildSSE" placeholder="" />
+                                    <input type="number" className="form-control" id="formEmployeeChildSSE" placeholder="" value={childrenSSE} onChange={handleChildrenSSEChange}/>
                                 </div>
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeChildAnapira" className="form-label">Αριθμός ανάπηρων παιδιών</label>
-                                    <input type="text" className="form-control" id="formEmployeeChildAnapira" placeholder="" />
+                                    <input type="text" className="form-control" id="formEmployeeChildAnapira" placeholder="" value={childrenANAPIRA} onChange={handleChildrenANAPIRAChange}/>
                                 </div>
                             </div>
 
@@ -184,7 +275,7 @@ export default function Employee() {
                                 <div className="row">
                                     <div className="col-md-6 mb-3">
                                         <label htmlFor="formEmployeeEducation" className="form-label">Εκπαίδευση</label>
-                                        <select className="form-select" id="formEmployeeEducation">
+                                        <select className="form-select" id="formEmployeeEducation"value={Education} onChange={handleEducationChange}>
                                             <option value=""></option>
                                             <option value="Πανεπιστήμιο">Πανεπιστημιακή</option>
                                             <option value="Λύκειο">Λυκείου</option>
@@ -193,7 +284,7 @@ export default function Employee() {
                                     </div>
                                     <div className="col-md-6 mb-3">
                                         <label htmlFor="formEmployeeJob" className="form-label">Ειδικότητα Εργαζομένου</label>
-                                        <input type="text" className="form-control" id="formEmployeeJob" placeholder="" />
+                                        <input type="text" className="form-control" id="formEmployeeJob" placeholder=""value={Job} onChange={handleJobChange} />
                                     </div>
                                 </div>
                             </div>
@@ -203,22 +294,22 @@ export default function Employee() {
                                 <div className="row">
                                     <div className="col-md-6 mb-3">
                                         <label htmlFor="formEmployeeId" className="form-label">Είδος Ταυτότητας</label>
-                                        <select className="form-select" id="formEmployeeId">
+                                        <select className="form-select" id="formEmployeeId" value={IdType} onChange={handleIdTypeChange}>
                                             <option value=""></option>
                                             <option value="Αστυνομική">Αστυνομική</option>
                                         </select>
                                     </div>
                                     <div className="col-md-6 mb-3">
                                         <label htmlFor="formEmployeeIdNumber" className="form-label">Αριθμός Ταυτότητας</label>
-                                        <input type="text" className="form-control" id="formEmployeeIdNumber" placeholder=""/>
+                                        <input type="text" className="form-control" id="formEmployeeIdNumber" placeholder=""value={IdNumber} onChange={setIdNumber} />
                                     </div>
                                     <div className="col-md-6 mb-3">
                                         <label htmlFor="formEmployeeIdDate" className="form-label">Ημερομηνία Έκδοσης</label>
-                                        <input type="date" className="form-control" id="formEmployeeIdDate" placeholder="" />
+                                        <input type="date" className="form-control" id="formEmployeeIdDate" placeholder="" value={IdDate} onChange={setIdDate}/>
                                     </div>
                                     <div className="col-md-6 mb-3">
                                         <label htmlFor="formEmployeeIdPlace" className="form-label">Αρχή Έκδοσης</label>
-                                        <input type="text" className="form-control" id="formEmployeeIdPlace" placeholder=""/>
+                                        <input type="text" className="form-control" id="formEmployeeIdPlace" placeholder=""value={IdPlace} onChange={setIdPlace}/>
                                     </div>
                                 </div>
                             </div>

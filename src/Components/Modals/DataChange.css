@@ -1,28 +1,24 @@
 .custome-button {
     background-color: hsl(135, 72%, 47%);
 }
-
 .custome-button:hover {
     background-color: hsl(135, 72%, 36%);
 }
 .custome-button:active {
     background-color: hsl(135, 72%, 36%);
 }
-
 .custome-modal {
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;  /* Προσαρμοσμένο για να κάθεται στο κέντρο */
 }
-
 .custom-modal-width {
     max-width: 1440px; /* Προσαρμοσμένο πλάτος */
     width: 100%;
     margin-left: auto;
     margin-right: auto;
 }
-
 .modal-content {
     padding: 20px;
 }

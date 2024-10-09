@@ -1,7 +1,8 @@
-import React, { useEffect } from 'react';
+import React, { useEffect,useContext } from 'react';
 import './DataChange.css';
+import { EmployeeContext } from '../Pages/EmployeeProvider';
 
-export default function DataChange({ showModal2, setShowModal2 }) {
+export default function DataChange({ showModal2, setShowModal2, ypallilos  }) {
     const handleClose = () => setShowModal2(false);
 
     useEffect(() => {
@@ -33,12 +34,12 @@ export default function DataChange({ showModal2, setShowModal2 }) {
             <div className="modal show custome-modal" style={{ display: 'block' }} tabIndex="-1" aria-labelledby="exampleModalLabel">
                 <div className="modal-dialog modal-dialog-centered custom-modal-width">
                     <div className="modal-content">
-                        <div className="modal-header">
-                            <h3 className="modal-title fs-5" id="exampleModalLabel">Modal title</h3>
+                        <div className="modal-header" style={{borderBottom: "1px solid grey"}}>
+                            <h3 className="modal-title fs-5" id="exampleModalLabel">Στοιχεία του {ypallilos.Yname} {ypallilos.Yepitheto}</h3>
                             <button type="button" onClick={handleClose} className="btn-close" aria-label="Close" style={{ marginTop: "-3%", marginRight: "-0.5%", border: "3px solid grey" }}></button>
                         </div>
                         <div className="row ">
-                            
+
                             <div className="col-12 col-md-3 p-3">
                                 <div className="mb-3">
                                     <label htmlFor="formEmployeeFathername" className="form-label">Όνομα Πατέρα</label>
@@ -164,7 +165,7 @@ export default function DataChange({ showModal2, setShowModal2 }) {
                             </div>
 
                         </div>
-                        <div className="modal-footer">
+                        <div className="modal-footer" style={{borderTop: "1px solid grey"}}>
                             <button type="button" className="btn custome-button" onClick={handleClose}>Αποθήκευση Αλλαγών</button>
                         </div>
                     </div>
