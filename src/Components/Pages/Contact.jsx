@@ -7,7 +7,7 @@ export default function Contact() {
         <>
             <Navbar />
             <div className="container contact-container">
-                <div className="form-container">
+                <div className="form-container"style={{maxHeight: "85%"}}>
                     <h2>Επικοινωνήστε μαζί μας</h2>
                     <form>
                         <div className="mb-3">

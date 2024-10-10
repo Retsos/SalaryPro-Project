@@ -20,3 +20,9 @@
 .footer-content a:hover {
   text-decoration: underline;
 }
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 768px) {
+  .foοter{
+    height: 15%;
+  }
+}
