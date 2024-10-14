@@ -36,7 +36,7 @@ export default function AfterSubmit({ showModal, setShowModal }) {
                         <h1 className="modal-title fs-5" id="exampleModalLabel">SalaryPro</h1>
                         <button type="button" className="btn-close" onClick={handleClose} aria-label="Close"></button>
                     </div>
-                    <div className="modal-body">
+                    <div className="modal-body ">
                         <p>Ο Υπάλληλος προστέθηκε με επιτυχία</p>
                     </div>
                     <div className="modal-footer justify-content-center">

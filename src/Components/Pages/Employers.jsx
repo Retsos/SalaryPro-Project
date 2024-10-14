@@ -65,7 +65,7 @@ export default function Employers() {
                                         className="btn btn-outline-secondary"
                                         onClick={() => handleChangeClick(index)}
                                     >
-                                        Αλλαγή Στοιχείων
+                                        Λεπτομέρειες
                                     </button>
                                 </td>
                             </tr>

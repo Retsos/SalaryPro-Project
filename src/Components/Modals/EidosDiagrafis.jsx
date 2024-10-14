@@ -64,7 +64,7 @@ export default function EidosDiagrafis({ showModal, setShowModal, onConfirm }) {
                 <div className="modal-content">
                     <div className="modal-header">
                         <h4 className="modal-title" id="modalLabel">Συμπληρώστε τα παρακάτω</h4>
-                        <button type="button" className="btn-close" aria-label="Close" onClick={handleClose}></button>
+                        <button type="button" className="btn-close" style={{border: "3px solid grey"}} aria-label="Close" onClick={handleClose}></button>
                     </div>
                     <div className="modal-body">
                         <form className="row g-3 needs-validation" noValidate onSubmit={handleSubmit}>

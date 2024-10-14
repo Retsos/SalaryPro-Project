@@ -1,6 +1,5 @@
-import React, { useEffect,useContext } from 'react';
+import React, { useEffect } from 'react';
 import './DataChange.css';
-import { EmployeeContext } from '../Pages/EmployeeProvider';
 
 export default function DataChange({ showModal2, setShowModal2, ypallilos  }) {
     const handleClose = () => setShowModal2(false);

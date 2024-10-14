@@ -39,7 +39,8 @@ export default function Employee() {
         const NewYpallilos = {
             Yname: name,
             Yepitheto: epitheto,
-            Ycode: code
+            Ycode: code,
+            Yfathername: fathername
         };
         setYpalliloi(prevYpalliloi => [...prevYpalliloi, NewYpallilos]);
     }
@@ -132,6 +133,7 @@ export default function Employee() {
             setName("");
             setEpitheto("");
             setCode("");
+            setfathername("");
             setShowModal2(true);
             ref.current.scrollTo({
                 top: 0,

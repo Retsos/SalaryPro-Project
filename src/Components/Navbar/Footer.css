@@ -1,5 +1,5 @@
 .footer {
-  background-color: #98badc;
+  background-color: #343a40;
   text-align: center;
   position: relative; /* Κάνει το footer fixed στο κάτω μέρος */
   width: 100%;  
@@ -10,7 +10,7 @@
 }
 .footer-content p {
   margin: 5px 0; 
-  color: #6c757d;
+  color: white;
 }
 .footer-content a {
   color: #007bff;
