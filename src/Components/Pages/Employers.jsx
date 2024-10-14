@@ -41,6 +41,7 @@ export default function Employers() {
                             <th scope="col">Επίθετο</th>
                             <th scope="col">Διαγραφές</th>
                             <th scope="col">Επεξεργασία</th>
+                            <th scope="col">Ωράρια </th>
                         </tr>
                     </thead>
                     <tbody>
@@ -66,6 +67,14 @@ export default function Employers() {
                                         onClick={() => handleChangeClick(index)}
                                     >
                                         Λεπτομέρειες
+                                    </button>
+                                </td>
+                                <td>
+                                    <button
+                                        type="button"
+                                        className="btn btn-outline-secondary"
+                                    >
+                                        Προσθήκη Ωραρίων
                                     </button>
                                 </td>
                             </tr>
