@@ -2,12 +2,14 @@ import React, { useState, useContext } from 'react';
 import { EmployeeContext } from './EmployeeProvider';
 import EidosDiagrafis from '../Modals/EidosDiagrafis';
 import DataChange from '../Modals/DataChange.jsx';
+import Wraria  from '../Modals/Wraria.jsx';
 import './Employers.css';
 
 export default function Employers() {
     const { Ypalliloi, setYpalliloi } = useContext(EmployeeContext);
     const [showModal, setShowModal] = useState(false);
     const [showModal2, setShowModal2] = useState(false);
+    const [showModal3, setShowModal3] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(null);
 
     const handleDeleteClick = (index) => {
@@ -19,7 +21,10 @@ export default function Employers() {
         setSelectedIndex(index);
         setShowModal2(true);
     };
-
+    const handleChangeWraria = (index) => {
+        setSelectedIndex(index);
+        setShowModal3(true);
+    };
     const handleConfirmDelete = () => {
         if (selectedIndex !== null) {
             setYpalliloi(Ypalliloi.filter((_, i) => i !== selectedIndex));
@@ -73,6 +78,7 @@ export default function Employers() {
                                     <button
                                         type="button"
                                         className="btn btn-outline-secondary"
+                                        onClick={() => handleChangeWraria(index)}
                                     >
                                         Προσθήκη Ωραρίων
                                     </button>
@@ -90,6 +96,11 @@ export default function Employers() {
             <DataChange
                 showModal2={showModal2}
                 setShowModal2={setShowModal2}
+                ypallilos={selectedYpallilos} // Πέρασμα του επιλεγμένου υπαλλήλου
+            />
+            <Wraria
+                showModal2={showModal3}
+                setShowModal2={setShowModal3}
                 ypallilos={selectedYpallilos} // Πέρασμα του επιλεγμένου υπαλλήλου
             />
         </>

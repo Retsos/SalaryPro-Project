@@ -8,4 +8,32 @@
       max-width: 95%; 
       margin-left: auto; 
       margin-right: auto; 
-    }
+    }.table {
+      width: 100%;
+      border-collapse: collapse;
+      margin-bottom: 1rem;
+      background-color: transparent;
+  }
+  
+  .custome-table th,
+  .custome-table td {
+      text-align: center; /* Κεντρική στοίχιση για τα κελιά */
+      vertical-align: middle; /* Κεντρική στοίχιση στο κάθετο άξονα */
+      padding: 12px; /* Προσθήκη padding για να υπάρχει κενός χώρος γύρω από το κείμενο */
+      border: 1px solid #dee2e6; /* Περιγράμματα για τα κελιά */
+  }
+  
+  .custome-table th {
+      background-color: #f8f9fa; /* Ανοιχτό γκρι φόντο για τις επικεφαλίδες */
+      font-weight: bold;
+  }
+  
+  .btn-outline-danger, .btn-outline-secondary {
+      padding: 5px 10px; /* Μείωση του padding για τα κουμπιά ώστε να ταιριάζουν καλύτερα στα κελιά */
+      font-size: 0.9rem; /* Μικρότερο μέγεθος γραμματοσειράς για τα κουμπιά */
+      margin: 0 auto; /* Κεντραρισμένα κουμπιά */
+      display: block; /* Για να λειτουργεί το margin */
+  }
+  
+ 
+  
