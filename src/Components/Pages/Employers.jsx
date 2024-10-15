@@ -2,15 +2,27 @@ import React, { useState, useContext } from 'react';
 import { EmployeeContext } from './EmployeeProvider';
 import EidosDiagrafis from '../Modals/EidosDiagrafis';
 import DataChange from '../Modals/DataChange.jsx';
-import Wraria  from '../Modals/Wraria.jsx';
 import './Employers.css';
 
 export default function Employers() {
     const { Ypalliloi, setYpalliloi } = useContext(EmployeeContext);
     const [showModal, setShowModal] = useState(false);
     const [showModal2, setShowModal2] = useState(false);
-    const [showModal3, setShowModal3] = useState(false);
     const [selectedIndex, setSelectedIndex] = useState(null);
+
+
+
+    const getDate = () => {
+
+        const currentDate = new Date();
+
+        const year = currentDate.getFullYear();
+        const month = String(currentDate.getMonth() + 1).padStart(2, '0'); // Προσθέτει +1 γιατί οι μήνες ξεκινάνε από 0
+        const day = String(currentDate.getDate()).padStart(2, '0');
+
+        const formattedDate = `${day}/${month}/${year}`;
+        return formattedDate;
+    }
 
     const handleDeleteClick = (index) => {
         setSelectedIndex(index);
@@ -20,10 +32,6 @@ export default function Employers() {
     const handleChangeClick = (index) => {
         setSelectedIndex(index);
         setShowModal2(true);
-    };
-    const handleChangeWraria = (index) => {
-        setSelectedIndex(index);
-        setShowModal3(true);
     };
     const handleConfirmDelete = () => {
         if (selectedIndex !== null) {
@@ -41,18 +49,19 @@ export default function Employers() {
                     <thead>
                         <tr>
                             <th scope="col">#</th>
+                            <th scope="col">Ημερομηνία Δημιουργίας</th>
                             <th scope="col">Κωδικός</th>
                             <th scope="col">Όνομα</th>
                             <th scope="col">Επίθετο</th>
                             <th scope="col">Διαγραφές</th>
                             <th scope="col">Επεξεργασία</th>
-                            <th scope="col">Ωράρια </th>
                         </tr>
                     </thead>
                     <tbody>
                         {Ypalliloi.map((ypallilos, index) => (
                             <tr key={index}>
                                 <th scope="row">{index + 1}</th>
+                                <td>{getDate()}</td>
                                 <td>{ypallilos.Ycode}</td>
                                 <td>{ypallilos.Yname}</td>
                                 <td>{ypallilos.Yepitheto}</td>
@@ -74,15 +83,6 @@ export default function Employers() {
                                         Λεπτομέρειες
                                     </button>
                                 </td>
-                                <td>
-                                    <button
-                                        type="button"
-                                        className="btn btn-outline-secondary"
-                                        onClick={() => handleChangeWraria(index)}
-                                    >
-                                        Προσθήκη Ωραρίων
-                                    </button>
-                                </td>
                             </tr>
                         ))}
                     </tbody>
@@ -96,11 +96,6 @@ export default function Employers() {
             <DataChange
                 showModal2={showModal2}
                 setShowModal2={setShowModal2}
-                ypallilos={selectedYpallilos} // Πέρασμα του επιλεγμένου υπαλλήλου
-            />
-            <Wraria
-                showModal2={showModal3}
-                setShowModal2={setShowModal3}
                 ypallilos={selectedYpallilos} // Πέρασμα του επιλεγμένου υπαλλήλου
             />
         </>

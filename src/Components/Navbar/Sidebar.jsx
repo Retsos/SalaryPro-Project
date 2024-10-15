@@ -45,12 +45,12 @@ export default function Sidebar() {
                         onClick={toggleDropdown} 
                         style={{ width: "100%" }}
                     >
-                        Dropdown {dropdownOpen ? <IoMdArrowDropdown /> : <IoMdArrowDropright />} 
+                        Διαχείριση Προσωπικού {dropdownOpen ? <IoMdArrowDropdown /> : <IoMdArrowDropright />} 
                     </button>
                 </li>
                 <div className={`dropdown-content ${dropdownOpen ? 'open' : ''}`}>
-                    <CustomLink to="/Action1">Action 1</CustomLink>
-                    <CustomLink to="/Action2">Action 2</CustomLink>
+                    <CustomLink to="/Action2">Μισθοδοσίες</CustomLink>
+                    <CustomLink to="/Wraria">Ωράρια</CustomLink>
                     <CustomLink to="/Action3">Action 3</CustomLink>
                 </div>
             </ul>
