@@ -1,0 +1,41 @@
+.content {
+    flex-grow: 1;
+    padding: 20px;
+    overflow-y: auto; 
+}
+
+.custome-table {
+    margin-top: 10%;
+    max-width: 95%; 
+    margin-left: auto; 
+    margin-right: auto; 
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 1rem;
+    background-color: transparent;
+}
+
+.custome-table th,
+.custome-table td {
+    text-align: center; /* Κεντρική στοίχιση για τα κελιά */
+    vertical-align: middle; /* Κεντρική στοίχιση στο κάθετο άξονα */
+    padding: 8px;
+    border: 2px solid #dee2e6; 
+}
+
+.custome-table th {
+    background-color: #f8f9fa; 
+    font-weight: bold;
+}
+
+.disabled-fields {
+    opacity: 0.5; 
+}
+
+.form-select:disabled {
+    cursor: not-allowed;
+    opacity: 0.5;
+}

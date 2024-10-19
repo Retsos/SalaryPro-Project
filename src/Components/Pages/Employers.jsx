@@ -45,6 +45,10 @@ export default function Employers() {
     return (
         <>
             <div className="content">
+
+                <div className="container mt-3">
+                    <h1 className="text-center" style={{ marginBottom: "1%", marginTop: "3%" }}>Οι Υπάλληλοι σας</h1>
+                </div>
                 <table className="table custome-table">
                     <thead>
                         <tr>
