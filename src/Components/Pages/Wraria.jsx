@@ -20,7 +20,6 @@ export default function Wraria() {
         setSelectedYpallilos(selectedYpallilos); // Ενημέρωση του επιλεγμένου υπαλλήλου με όλο το αντικείμενο
     };
 
-    // Δημιουργία επιλογών χρόνου
     const timeOptions = [];
     const startHour = 0; // Ώρα εκκίνησης
     const endHour = 23; // Ώρα λήξης
@@ -48,7 +47,7 @@ export default function Wraria() {
 
     const handleWrarioChange = (day, value) => {
         ResetTime(day);
-    
+
         setWraria(prevState => ({
             ...prevState,
             [day]: {
@@ -57,17 +56,16 @@ export default function Wraria() {
             }
         }));
     };
-    
-    
-    const ResetTime=(day)=>{
+
+    const ResetTime = (day) => {
         setWraria(prevState => ({
             ...prevState,
             [day]: {
                 ...prevState[day],
-                WrarioApo1: "", 
-                WrarioEws1: "", 
-                WrarioApo2: "", 
-                WrarioEws2: "", 
+                WrarioApo1: "",
+                WrarioEws1: "",
+                WrarioApo2: "",
+                WrarioEws2: "",
             }
         }));
     }
@@ -78,7 +76,7 @@ export default function Wraria() {
                 ...prevState[day],
                 [field]: value,
             };
-    
+
             // Αν το ωράριο είναι "Συνεχόμενο", τότε υπολογίζουμε το τέλος της εργασίας (8 ώρες διαφορά)
             if (updatedDay.Wrario === "Συνεχόμενο" && field === 'WrarioApo1') {
                 const [startHour, startMinute] = value.split(':');
@@ -87,7 +85,6 @@ export default function Wraria() {
                 const endTime = `${endHour.toString().padStart(2, '0')}:${startMinute}`;
                 updatedDay.WrarioEws1 = endTime;
             }
-    
             // Αν το ωράριο είναι "Σπαστό", τότε υπολογίζουμε την ώρα για τα πεδία με 4 ώρες διαφορά
             if (updatedDay.Wrario === "Σπαστό") {
                 if (field === 'WrarioApo1') {
@@ -104,21 +101,19 @@ export default function Wraria() {
                     updatedDay.WrarioEws2 = endTime2;
                 }
             }
-            
-    
+
             return {
                 ...prevState,
                 [day]: updatedDay,
             };
         });
     };
-    
 
     return (
         <>
             <div className="content">
                 <div className="container mt-3">
-                    <h1 className="text-center" style={{ marginBottom: "5%", marginTop: "3%" }}>Ωράρια Εργαζομένων</h1>
+                    <h1 className="text-center" style={{ marginBottom: "5%"}}>Ωράρια Εργαζομένων</h1>
                 </div>
 
                 <div className="container mt-3">
@@ -146,7 +141,7 @@ export default function Wraria() {
 
                 {/* Προβολή του επιλεγμένου υπαλλήλου */}
                 {selectedYpallilos && (
-                    <div className="container mt-4">
+                    <div className="container mt-2">
                         <h3 className='text-center'>Πρόγραμμα του {selectedYpallilos.Yname} {selectedYpallilos.Yepitheto}</h3>
                     </div>
                 )}
@@ -161,7 +156,7 @@ export default function Wraria() {
                             <th scope="col">Εργασία1 από</th>
                             <th scope="col">Εργασία1 έως</th>
                             <th scope="col">Εργασία2 από</th>
-                            <th scope="col">Εργασία2 έως</th>    
+                            <th scope="col">Εργασία2 έως</th>
                         </tr>
                     </thead>
                     <tbody>
@@ -210,6 +205,9 @@ export default function Wraria() {
                         ))}
                     </tbody>
                 </table>
+                <div className="text-center mt-4 mb-3">
+                    <button type="submit" className="btn btn-primary btn-lg">Αποθήκευση</button>
+                </div>
             </div>
         </>
     );
