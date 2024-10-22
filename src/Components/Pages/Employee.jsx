@@ -6,7 +6,7 @@ import AfterSubmit from '../Modals/AfterSubmit';
 export default function Employee() {
 
     const [showModal2, setShowModal2] = useState(false);
-    const { setYpalliloi } = useContext(EmployeeContext);
+    const {setYpalliloi } = useContext(EmployeeContext);
     const [name, setName] = useState("");
     const [epitheto, setEpitheto] = useState("");
     const [code, setCode] = useState("");
@@ -63,13 +63,13 @@ export default function Employee() {
         setfathername(event.target.value);
     }
     function handleFatherSurnameChange(event) {
-        setfathername(event.target.value);
+        setsurfathername(event.target.value);
     }
     function handleMothernameChange(event) {
         setmothername(event.target.value);
     }
     function handleMotherSurnameChange(event) {
-        setmothername(event.target.value);
+        setsurmothername(event.target.value);
     }
     function handleGenderChange(event) {
         setgender(event.target.value);

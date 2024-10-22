@@ -3,21 +3,18 @@
     padding: 20px;
     overflow-y: auto; 
 }
-
 .custome-table {
     margin-top: 10%;
     max-width: 95%; 
     margin-left: auto; 
     margin-right: auto; 
 }
-
 .table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 1rem;
     background-color: transparent;
 }
-
 .custome-table th,
 .custome-table td {
     text-align: center; /* Κεντρική στοίχιση για τα κελιά */
@@ -25,17 +22,51 @@
     padding: 8px;
     border: 2px solid #dee2e6; 
 }
-
 .custome-table th {
     background-color: #f8f9fa; 
     font-weight: bold;
 }
-
 .disabled-fields {
     opacity: 0.5; 
 }
-
 .form-select:disabled {
     cursor: not-allowed;
     opacity: 0.5;
 }
+.wres input[type="number"]::-webkit-outer-spin-button,
+.wres input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+@media print {
+    body * {
+      visibility: hidden;
+    }
+  
+    #my-table, #my-table * {
+      visibility: visible;
+    }
+  
+    #my-table {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+    }
+    .thmera{
+        width: 100px;
+    }
+    .thimerominia{
+        width: 40px;
+    }
+    .custome-table {
+        max-width: 100%; 
+    }
+    .thwresErg{
+        width: 20px;
+    }
+    .time{
+        width: 20px;
+    }
+  }
