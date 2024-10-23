@@ -1,13 +1,13 @@
 import React, { useState } from 'react';
 import './Sidebar.css';
 import { Link, useLocation, useNavigate } from 'react-router-dom';
-import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";  
+import { IoMdArrowDropdown, IoMdArrowDropright } from "react-icons/io";
 
 export default function Sidebar() {
     const location = useLocation();
     const navigate = useNavigate();
 
-    const [dropdownOpen, setDropdownOpen] = useState(false); 
+    const [dropdownOpen, setDropdownOpen] = useState(false);
 
     const handleLogoutClick = () => {
         navigate('/LoginPage');
@@ -26,7 +26,7 @@ export default function Sidebar() {
         );
     }
     const toggleDropdown = () => {
-        setDropdownOpen(!dropdownOpen); 
+        setDropdownOpen(!dropdownOpen);
     };
 
     return (
@@ -37,15 +37,15 @@ export default function Sidebar() {
                 </Link>
             </div>
             <ul className="nav flex-column navibar">
-                <CustomLink to="/Employers">Οι Υπάλληλοι μου</CustomLink>
                 <CustomLink to="/Employee">Προσθήκη Νέου Υπαλλήλου</CustomLink>
+                <CustomLink to="/Employers">Οι Υπάλληλοι μου</CustomLink>
                 <li className="nav-item">
-                    <button 
-                        className="nav-link text-white text-decoration-none" 
-                        onClick={toggleDropdown} 
+                    <button
+                        className="nav-link text-white text-decoration-none"
+                        onClick={toggleDropdown}
                         style={{ width: "100%" }}
                     >
-                        Διαχείριση Προσωπικού {dropdownOpen ? <IoMdArrowDropdown /> : <IoMdArrowDropright />} 
+                        Διαχείριση Προσωπικού {dropdownOpen ? <IoMdArrowDropdown /> : <IoMdArrowDropright />}
                     </button>
                 </li>
                 <div className={`dropdown-content ${dropdownOpen ? 'open' : ''}`}>

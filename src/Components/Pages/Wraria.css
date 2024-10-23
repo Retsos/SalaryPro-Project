@@ -1,62 +1,43 @@
 .content {
     flex-grow: 1;
     padding: 20px;
-    overflow-y: auto;
 }
-
 .custome-table {
     margin-top: 10%;
     max-width: 95%;
     margin-left: auto;
     margin-right: auto;
 }
-
 .table {
     width: 100%;
     border-collapse: collapse;
     margin-bottom: 1rem;
     background-color: transparent;
     margin-top: 10px;
-    /* Adjust this value if more or less space is needed */
 }
-.my-toolbar {
-    border: "2px solid grey";
-    padding: "1%";
-    width: "95%";
-    margin-bottom: "0";
-    margin-left: "2.5%"
-}
-
 .custome-table th,
 .custome-table td {
     text-align: center;
-    /* Κεντρική στοίχιση για τα κελιά */
     vertical-align: middle;
-    /* Κεντρική στοίχιση στο κάθετο άξονα */
-    padding: 8px;
+    padding: 5px;
     border: 2px solid #dee2e6;
 }
-
 .custome-table th {
     background-color: #f8f9fa;
     font-weight: bold;
 }
-
 .disabled-fields {
     opacity: 0.5;
 }
-
 .form-select:disabled {
     cursor: not-allowed;
     opacity: 0.5;
 }
-
 .wres input[type="number"]::-webkit-outer-spin-button,
 .wres input[type="number"]::-webkit-inner-spin-button {
     -webkit-appearance: none;
     margin: 0;
 }
-
 @media print {
     body * {
         visibility: hidden !important;
@@ -70,85 +51,35 @@
         left: 50%;
         transform: translate(-50%, -50%);
     }
-
     #my-table,
     #my-table * {
         visibility: visible !important;
     }
-
     #my-table {
         position: absolute;
         top: 5%;
-        /* Adjust the table's position slightly below the title */
         left: 0;
-        width: 100%;
+        width: 100% !important;
     }
-
     #my-table th,
     #my-table td {
         padding: 2px !important;
         text-align: center !important;
+        font-size: 12px;
     }
-
     #my-table .thmera {
         width: 100px !important;
     }
-
     .thimerominia {
         width: 70px !important;
-        /* Increased width for better readability */
     }
-
     .custome-table {
         max-width: 100%;
     }
-
     #my-table .thwresErg {
         width: 50px !important;
-        /* Increased width */
     }
-
     .time {
         width: 100px !important;
-        /* Ensuring enough space for time input */
-    }
-}
-
-@media pdf {
-    table {
-        width: 100%;
-        border-collapse: collapse;
-    }
-
-    table th,
-    table td {
-        padding: 10px;
-        text-align: center;
-        border: 1px solid #000;
-    }
-
-    input,
-    select {
-        width: 100px;
-        /* Fixed width to ensure fields don't overflow */
-        padding: 5px;
-        font-size: 12px;
-        box-sizing: border-box;
-    }
-
-    .disabled-fields {
-        background-color: #e9ecef;
-        /* Gray out disabled fields */
-    }
-
-    input,
-    select {
-        width: 100px;
-        /* or a value that fits your PDF design */
-        max-width: 100px;
-        /* to ensure the field doesn't overflow */
-        padding: 5px;
-        font-size: 12px;
-        box-sizing: border-box;
     }
 }

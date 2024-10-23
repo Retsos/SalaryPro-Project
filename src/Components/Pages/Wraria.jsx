@@ -5,11 +5,10 @@ import * as XLSX from 'xlsx';
 import html2pdf from 'html2pdf.js';
 import { BsExclamationCircleFill } from "react-icons/bs";
 
-
 export default function Wraria() {
     const { Ypalliloi } = useContext(EmployeeContext);
     const [selectedYpallilos, setSelectedYpallilos] = useState(null);
-    const [wraria, setWraria] = useState({
+    const initialWraria = {
         Δευτέρα: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "", WrarioApo2: "", WrarioEws2: "" },
         Τρίτη: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "", WrarioApo2: "", WrarioEws2: "" },
         Τετάρτη: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "", WrarioApo2: "", WrarioEws2: "" },
@@ -17,11 +16,13 @@ export default function Wraria() {
         Παρασκευή: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "", WrarioApo2: "", WrarioEws2: "" },
         Σάββατο: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "", WrarioApo2: "", WrarioEws2: "" },
         Κυριακή: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "", WrarioApo2: "", WrarioEws2: "" },
-    });
+    };
+    const [wraria, setWraria] = useState(initialWraria);
 
     const handleYpallilosChange = (event) => {
         const selectedYpallilos = Ypalliloi.find(ypallilos => ypallilos.Ycode === event.target.value);
         setSelectedYpallilos(selectedYpallilos);
+        setWraria(initialWraria);
     };
 
     const timeOptions = [];
@@ -120,16 +121,16 @@ export default function Wraria() {
 
     const handlePdfExport = () => {
         const pdfElement = pdfRef.current;
-
+    
         // Clone the element to manipulate without changing the original
         const clonedElement = pdfElement.cloneNode(true);
-
+    
         // Replace inputs and selects with their values
         clonedElement.querySelectorAll('input, select').forEach(element => {
             const textValue = document.createTextNode(element.value || '-');
             element.replaceWith(textValue);
         });
-
+    
         const opt = {
             margin: 0.5,
             filename: 'wraria.pdf',
@@ -139,10 +140,11 @@ export default function Wraria() {
         };
         html2pdf().from(clonedElement).set(opt).save();
     };
+    
 
     return (
         <>
-            <div className="content">
+            <div className="content" style={{marginBottom: "2%"}}>
                 <div className="container mt-3">
                     <h1 className="text-center" style={{ marginBottom: "5%" }}>Ωράρια Εργαζομένων</h1>
                 </div>
@@ -179,7 +181,6 @@ export default function Wraria() {
 
 
                 {/* Γραμμή εργαλείων */}
-                {/* Γραμμή εργαλείων */}
                 <div className="toolbar mb-3 text-center my-toolbar d-flex justify-content-between align-items-center" style={{ border: "2px solid grey", padding: "0.5%", width: "95%", marginBottom: "0", marginLeft: "2.5%" }}>
                     <div style={{ flex: 1 }}></div> {/* Empty div to push buttons to the center */}
 
@@ -189,7 +190,7 @@ export default function Wraria() {
                         <button type="button" className="btn btn-danger mx-2" onClick={handlePdfExport}>Εκτύπωση σε PDF</button>
                     </div>
 
-                    <div style={{ flex: 1, textAlign: 'right', position: 'relative' }}>
+                    <div style={{ flex: 1, textAlign: 'right', position: 'relative',marginRight: "1%" }}>
                         <BsExclamationCircleFill size={20} color='red' title='Τα προγραμματα αποθηκεύονται έως και 2 χρόνια' />
                     </div>
                 </div>
@@ -263,7 +264,7 @@ export default function Wraria() {
                         </tbody>
                     </table>
                 </div>
-                <div className="text-center mt-4 mb-3">
+                <div className="text-center mt-4 mb-3" >
                     <button type="submit" className="btn btn-primary btn-lg">Αποθήκευση</button>
                 </div>
             </div>
