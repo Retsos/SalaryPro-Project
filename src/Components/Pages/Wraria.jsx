@@ -3,6 +3,8 @@ import './Wraria.css';
 import { EmployeeContext } from './EmployeeProvider';
 import * as XLSX from 'xlsx';
 import html2pdf from 'html2pdf.js';
+import { BsExclamationCircleFill } from "react-icons/bs";
+
 
 export default function Wraria() {
     const { Ypalliloi } = useContext(EmployeeContext);
@@ -19,7 +21,7 @@ export default function Wraria() {
 
     const handleYpallilosChange = (event) => {
         const selectedYpallilos = Ypalliloi.find(ypallilos => ypallilos.Ycode === event.target.value);
-        setSelectedYpallilos(selectedYpallilos); 
+        setSelectedYpallilos(selectedYpallilos);
     };
 
     const timeOptions = [];
@@ -80,21 +82,21 @@ export default function Wraria() {
             };
             if (updatedDay.Wrario === "Συνεχόμενο" && field === 'WrarioApo1') {
                 const [startHour, startMinute] = value.split(':');
-                let endHour = parseInt(startHour) + 8; 
-                if (endHour >= 24) endHour -= 24; 
+                let endHour = parseInt(startHour) + 8;
+                if (endHour >= 24) endHour -= 24;
                 const endTime = `${endHour.toString().padStart(2, '0')}:${startMinute}`;
                 updatedDay.WrarioEws1 = endTime;
             }
             if (updatedDay.Wrario === "Σπαστό") {
                 if (field === 'WrarioApo1') {
                     const [startHour, startMinute] = value.split(':');
-                    let endHour1 = parseInt(startHour) + 4; 
+                    let endHour1 = parseInt(startHour) + 4;
                     if (endHour1 >= 24) endHour1 -= 24;
                     const endTime1 = `${endHour1.toString().padStart(2, '0')}:${startMinute}`;
                     updatedDay.WrarioEws1 = endTime1;
                 } else if (field === 'WrarioApo2') {
                     const [startHour, startMinute] = value.split(':');
-                    let endHour2 = parseInt(startHour) + 4; 
+                    let endHour2 = parseInt(startHour) + 4;
                     if (endHour2 >= 24) endHour2 -= 24;
                     const endTime2 = `${endHour2.toString().padStart(2, '0')}:${startMinute}`;
                     updatedDay.WrarioEws2 = endTime2;
@@ -118,7 +120,24 @@ export default function Wraria() {
 
     const handlePdfExport = () => {
         const pdfElement = pdfRef.current;
-        html2pdf().from(pdfElement).save('wraria.pdf');
+
+        // Clone the element to manipulate without changing the original
+        const clonedElement = pdfElement.cloneNode(true);
+
+        // Replace inputs and selects with their values
+        clonedElement.querySelectorAll('input, select').forEach(element => {
+            const textValue = document.createTextNode(element.value || '-');
+            element.replaceWith(textValue);
+        });
+
+        const opt = {
+            margin: 0.5,
+            filename: 'wraria.pdf',
+            image: { type: 'jpeg', quality: 0.98 },
+            html2canvas: { scale: 2 },
+            jsPDF: { unit: 'in', format: 'a4', orientation: 'portrait' }
+        };
+        html2pdf().from(clonedElement).set(opt).save();
     };
 
     return (
@@ -153,19 +172,26 @@ export default function Wraria() {
 
                 {/* Προβολή του επιλεγμένου υπαλλήλου */}
                 {selectedYpallilos && (
-                    <div className="container mt-2">
-                        <h3 className='text-center'>Πρόγραμμα του {selectedYpallilos.Yname} {selectedYpallilos.Yepitheto}</h3>
+                    <div className="container mt-2" >
+                        <h3 className='text-center' id='DisplayEmployee'>Πρόγραμμα του {selectedYpallilos.Yname} {selectedYpallilos.Yepitheto}</h3>
                     </div>
                 )}
 
 
                 {/* Γραμμή εργαλείων */}
                 {/* Γραμμή εργαλείων */}
-                <div className="toolbar mb-3 text-center">
-                    <button className="btn btn-primary mx-2" onClick={() => window.print()}>Εκτύπωση</button>
-                    <button className="btn btn-success mx-2" onClick={exportExcel}>Εξαγωγή σε Excel</button>
-                    <button className="btn btn-danger mx-2" onClick={handlePdfExport}>Εκτύπωση σε PDF</button>
+                <div className="toolbar mb-3 text-center my-toolbar d-flex justify-content-between align-items-center" style={{ border: "2px solid grey", padding: "0.5%", width: "95%", marginBottom: "0", marginLeft: "2.5%" }}>
+                    <div style={{ flex: 1 }}></div> {/* Empty div to push buttons to the center */}
 
+                    <div>
+                        <button type="button" className='btn btn-secondary' onClick={() => window.print()}>Εκτύπωση</button>
+                        <button type="button" className="btn btn-success mx-2" onClick={exportExcel}>Εξαγωγή σε Excel</button>
+                        <button type="button" className="btn btn-danger mx-2" onClick={handlePdfExport}>Εκτύπωση σε PDF</button>
+                    </div>
+
+                    <div style={{ flex: 1, textAlign: 'right', position: 'relative' }}>
+                        <BsExclamationCircleFill size={20} color='red' title='Τα προγραμματα αποθηκεύονται έως και 2 χρόνια' />
+                    </div>
                 </div>
 
                 {/* Ο πίνακας */}
@@ -180,9 +206,9 @@ export default function Wraria() {
                                 <th scope="col" style={{ width: '150px' }}>Ωράριο Εργασίας</th>
                                 <th scope="col" className='thwresErg' style={{ width: '130px' }}>Ώρες Εργασίας</th>
                                 <th scope="col" className='time'>Εργασία1 από</th>
-                                <th scope="col"  className='time'>Εργασία1 έως</th>
-                                <th scope="col"  className='time'>Εργασία2 από</th>
-                                <th scope="col"  className='time'>Εργασία2 έως</th>
+                                <th scope="col" className='time'>Εργασία1 έως</th>
+                                <th scope="col" className='time'>Εργασία2 από</th>
+                                <th scope="col" className='time'>Εργασία2 έως</th>
                             </tr>
                         </thead>
                         <tbody>
