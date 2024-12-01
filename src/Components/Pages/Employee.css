@@ -13,15 +13,7 @@
     -webkit-appearance: none;
     margin: 0;
 }
-input[type="date"]::-webkit-inner-spin-button,
-input[type="date"]::-webkit-calendar-picker-indicator {
-    display: none;
-}
-input[type="date"] {
-    -moz-appearance: textfield;
-    appearance: textfield;
-    color: #413f3f;
-}
+/* AFAIRESA THN AFAIRESI TIS EPILOGIS APO TO HMEROLOGIO KATW ARISTERA*/
 .form-control {
     background: transparent;
     border: none;

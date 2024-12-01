@@ -134,11 +134,13 @@ export default function Employee() {
             setEpitheto("");
             setCode("");
             setfathername("");
-            setShowModal2(true);
+            setShowModal2(true);    
+            console.log("hello")
             ref.current.scrollTo({
                 top: 0,
                 behavior: 'smooth'
             })
+            console.log("true")
         } else {
             console.log("ERROR");
         }

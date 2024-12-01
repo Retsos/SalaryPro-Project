@@ -3,9 +3,7 @@
     flex-wrap: wrap;
     width: 100%;
     height: 100vh; 
-    overflow: hidden; /* Αφαιρέθηκε το auto για να μην έχει scrolling το κύριο container */
 }
-
 .LoggedIn {
     width: calc(100% - 15%); 
     padding: 15px;
@@ -25,17 +23,14 @@
     height: calc(100vh - 50px); /* Το ύψος λαμβάνει υπόψη το ύψος της header */
     margin-left: 15%;
     margin-top: 50px; 
-    overflow-y: auto; /* Το overflow εδώ για scrolling */
-    background-color: #f1f1f1;
     box-sizing: border-box;
 }
 
 .content {
     flex-grow: 1;
     padding: 0;
-    background-color: #f1f1f1;
     height: 100%;
-    box-sizing: border-box; /* Αφαιρέθηκε το overflow-y: auto */
+    box-sizing: border-box; 
 }
 
 .LoggedInAs {
