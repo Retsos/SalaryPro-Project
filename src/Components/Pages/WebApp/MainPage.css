@@ -3,6 +3,7 @@
     flex-wrap: wrap;
     width: 100%;
     height: 100vh; 
+    overflow-y: none ;
 }
 .LoggedIn {
     width: calc(100% - 15%); 
@@ -18,6 +19,7 @@
 
 .content-wrapper {
     display: flex;
+    overflow-y: none ;
     flex-direction: column;
     width: 100%;
     height: calc(100vh - 50px); /* Το ύψος λαμβάνει υπόψη το ύψος της header */
@@ -29,6 +31,7 @@
 .content {
     flex-grow: 1;
     padding: 0;
+    overflow-y: auto;
     height: 100%;
     box-sizing: border-box; 
 }

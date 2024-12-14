@@ -1,13 +1,13 @@
 import React from 'react';
-import Employee from './Components/Pages/Employee';
-import Home from './Components/Pages/Home';
-import Employers from './Components/Pages/Employers';
-import LoginPage from './Components/Pages/LoginPage';
-import Contact from './Components/Pages/Contact';
+import Employee from './Components/Pages/WebApp/Employee';
+import Home from './Components/Pages/Website/Home';
+import Employers from './Components/Pages/WebApp/Employers';
+import LoginPage from './Components/Pages/Website/LoginPage';
+import Contact from './Components/Pages/Website/Contact';
 import { Routes, Route } from 'react-router-dom';
-import MainPage from './Components/Pages/MainPage';
+import MainPage from './Components/Pages/WebApp/MainPage';
 import { UserProvider } from './Components/Pages/UsernameContext';
-import Wraria from './Components/Pages/Wraria';  
+import Wraria from './Components/Pages/WebApp/Wraria';  
 
 function App() {
   return (

@@ -1,6 +1,7 @@
 .content {
   flex-grow: 1;
   padding: 20px;
+  overflow-y: auto;
   cursor: default;
 }
 .mb-3 input[type="number"]::-webkit-outer-spin-button,

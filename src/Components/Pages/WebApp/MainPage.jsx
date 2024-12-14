@@ -1,11 +1,11 @@
 import React, { useContext } from 'react';
-import Sidebar from '../Navbar/Sidebar';
+import Sidebar from '../../Navbar/Sidebar';
 import './MainPage.css';
-import { UsernameContext } from './UsernameContext';  
+import { UsernameContext } from '../UsernameContext';  
 
 export default function MainPage({ children }) {
 
-    const { user } = useContext(UsernameContext);  
+    const { user } = useContext(UsernameContext); 
     return (
         <div className="main-container">
             <Sidebar />

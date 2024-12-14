@@ -1,7 +1,7 @@
 import React, { useState, useContext } from 'react';
-import { EmployeeContext } from './EmployeeProvider';
-import EidosDiagrafis from '../Modals/EidosDiagrafis';
-import DataChange from '../Modals/DataChange.jsx';
+import { EmployeeContext } from '../EmployeeProvider.jsx';
+import EidosDiagrafis from '../../Modals/EidosDiagrafis.jsx';
+import DataChange from '../../Modals/DataChange.jsx';
 import './Employers.css';
 
 export default function Employers() {

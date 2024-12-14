@@ -1,6 +1,6 @@
 import React, { useState, useContext } from 'react';
 import './Wraria.css';
-import { EmployeeContext } from './EmployeeProvider';
+import { EmployeeContext } from '../EmployeeProvider';
 import * as XLSX from 'xlsx';
 import html2pdf from 'html2pdf.js';
 import { BsExclamationCircleFill } from "react-icons/bs";
@@ -9,13 +9,13 @@ export default function Wraria() {
     const { Ypalliloi } = useContext(EmployeeContext);
     const [selectedYpallilos, setSelectedYpallilos] = useState(null);
     const initialWraria = {
-        Δευτέρα: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "", WrarioApo2: "", WrarioEws2: "" },
-        Τρίτη: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "", WrarioApo2: "", WrarioEws2: "" },
-        Τετάρτη: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "", WrarioApo2: "", WrarioEws2: "" },
-        Πέμπτη: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "", WrarioApo2: "", WrarioEws2: "" },
-        Παρασκευή: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "", WrarioApo2: "", WrarioEws2: "" },
-        Σάββατο: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "", WrarioApo2: "", WrarioEws2: "" },
-        Κυριακή: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "", WrarioApo2: "", WrarioEws2: "" },
+        Δευτέρα: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "" },
+        Τρίτη: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "" },
+        Τετάρτη: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "" },
+        Πέμπτη: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "" },
+        Παρασκευή: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "" },
+        Σάββατο: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "" },
+        Κυριακή: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "" },
     };
     const [wraria, setWraria] = useState(initialWraria);
 
@@ -26,17 +26,6 @@ export default function Wraria() {
     };
 
     const timeOptions = [];
-    const startHour = 0;
-    const endHour = 23;
-
-    for (let hour = startHour; hour <= endHour; hour++) {
-        for (let minute of ["00", "30"]) {
-            const time = `${hour.toString().padStart(2, '0')}:${minute}`;
-            timeOptions.push(
-                <option key={time} value={time}>{time}</option>
-            );
-        }
-    }
 
     const daysOfWeek = ["Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο", "Κυριακή"];
     const handleErgasiaChange = (day, value) => {
@@ -48,67 +37,6 @@ export default function Wraria() {
                 Wrario: value === "Ρεπό/Ανάπαυση" ? "Ρεπό" : prevState[day].Wrario
             }
         }));
-    };
-
-    const handleWrarioChange = (day, value) => {
-        ResetTime(day);
-
-        setWraria(prevState => ({
-            ...prevState,
-            [day]: {
-                ...prevState[day],
-                Wrario: value
-            }
-        }));
-    };
-
-    const ResetTime = (day) => {
-        setWraria(prevState => ({
-            ...prevState,
-            [day]: {
-                ...prevState[day],
-                WrarioApo1: "",
-                WrarioEws1: "",
-                WrarioApo2: "",
-                WrarioEws2: "",
-            }
-        }));
-    }
-
-    const handleTimeChange = (day, field, value) => {
-        setWraria(prevState => {
-            const updatedDay = {
-                ...prevState[day],
-                [field]: value,
-            };
-            if (updatedDay.Wrario === "Συνεχόμενο" && field === 'WrarioApo1') {
-                const [startHour, startMinute] = value.split(':');
-                let endHour = parseInt(startHour) + 8;
-                if (endHour >= 24) endHour -= 24;
-                const endTime = `${endHour.toString().padStart(2, '0')}:${startMinute}`;
-                updatedDay.WrarioEws1 = endTime;
-            }
-            if (updatedDay.Wrario === "Σπαστό") {
-                if (field === 'WrarioApo1') {
-                    const [startHour, startMinute] = value.split(':');
-                    let endHour1 = parseInt(startHour) + 4;
-                    if (endHour1 >= 24) endHour1 -= 24;
-                    const endTime1 = `${endHour1.toString().padStart(2, '0')}:${startMinute}`;
-                    updatedDay.WrarioEws1 = endTime1;
-                } else if (field === 'WrarioApo2') {
-                    const [startHour, startMinute] = value.split(':');
-                    let endHour2 = parseInt(startHour) + 4;
-                    if (endHour2 >= 24) endHour2 -= 24;
-                    const endTime2 = `${endHour2.toString().padStart(2, '0')}:${startMinute}`;
-                    updatedDay.WrarioEws2 = endTime2;
-                }
-            }
-
-            return {
-                ...prevState,
-                [day]: updatedDay,
-            };
-        });
     };
 
     const exportExcel = () => {
@@ -204,12 +132,9 @@ export default function Wraria() {
                                 <th scope="col" className='thimerominia'>Ημερομηνία</th>
                                 <th scope="col" className='thmera'>Ημέρα</th>
                                 <th scope="col">Ανάλυση Τύπου Εργασίας</th>
-                                <th scope="col" style={{ width: '150px' }}>Ωράριο Εργασίας</th>
                                 <th scope="col" className='thwresErg' style={{ width: '130px' }}>Ώρες Εργασίας</th>
-                                <th scope="col" className='time'>Εργασία1 από</th>
-                                <th scope="col" className='time'>Εργασία1 έως</th>
-                                <th scope="col" className='time'>Εργασία2 από</th>
-                                <th scope="col" className='time'>Εργασία2 έως</th>
+                                <th scope="col" className='time'>Εργασία από</th>
+                                <th scope="col" className='time'>Εργασία έως</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -227,14 +152,6 @@ export default function Wraria() {
                                         </select>
                                     </td>
                                     <td>
-                                        <select className="form-select bg-white" value={wraria[day].Wrario} onChange={(e) => handleWrarioChange(day, e.target.value)}>
-                                            <option value="" disabled>--Επιλέξτε--</option>
-                                            <option value="Ρεπό" disabled={wraria[day].Ergasia !== "Ρεπό/Ανάπαυση"}>Ρεπό</option>
-                                            <option value="Συνεχόμενο" disabled={wraria[day].Ergasia !== "Εργασία"}>Συνεχόμενο</option>
-                                            <option value="Σπαστό" disabled={wraria[day].Ergasia !== "Εργασία"}>Σπαστό</option>
-                                        </select>
-                                    </td>
-                                    <td>
                                         <div className='wres'>
                                             <input type="number" className="form-control bg-white" />
                                         </div>
@@ -246,16 +163,6 @@ export default function Wraria() {
                                     </td>
                                     <td>
                                         <select className="form-select bg-white" value={wraria[day].WrarioEws1} onChange={(e) => handleTimeChange(day, 'WrarioEws1', e.target.value)} disabled={wraria[day].Ergasia !== "Εργασία"}>
-                                            {timeOptions}
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <select className={`form-select bg-white ${wraria[day].Wrario === "Συνεχόμενο" ? 'disabled-fields' : ''}`} value={wraria[day].WrarioApo2} onChange={(e) => handleTimeChange(day, 'WrarioApo2', e.target.value)} disabled={wraria[day].Ergasia !== "Εργασία" || wraria[day].Wrario === "Συνεχόμενο"}>
-                                            {timeOptions}
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <select className={`form-select bg-white ${wraria[day].Wrario === "Συνεχόμενο" ? 'disabled-fields' : ''}`} value={wraria[day].WrarioEws2} onChange={(e) => handleTimeChange(day, 'WrarioEws2', e.target.value)} disabled={wraria[day].Ergasia !== "Εργασία" || wraria[day].Wrario === "Συνεχόμενο"}>
                                             {timeOptions}
                                         </select>
                                     </td>

@@ -1,7 +1,7 @@
 import React, { useState, useContext, useRef } from 'react';
-import { EmployeeContext } from './EmployeeProvider';
+import { EmployeeContext } from '../EmployeeProvider';
 import './Employee.css';
-import AfterSubmit from '../Modals/AfterSubmit';
+import AfterSubmit from '../../Modals/AfterSubmit';
 
 export default function Employee() {
 

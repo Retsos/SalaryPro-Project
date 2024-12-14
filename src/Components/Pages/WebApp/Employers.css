@@ -1,6 +1,7 @@
   .content {
-      flex-grow: 1;
-      padding: 20px;
+    flex-grow: 1;
+    overflow-y: auto;
+    padding: 20px;
     }
     .custome-table {
       margin-top: 10%;
