@@ -9,13 +9,13 @@ export default function Wraria() {
     const { Ypalliloi } = useContext(EmployeeContext);
     const [selectedYpallilos, setSelectedYpallilos] = useState(null);
     const initialWraria = {
-        Δευτέρα: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "" },
-        Τρίτη: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "" },
-        Τετάρτη: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "" },
-        Πέμπτη: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "" },
-        Παρασκευή: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "" },
-        Σάββατο: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "" },
-        Κυριακή: { Ergasia: "", Wrario: "", WresErgasias: "", WrarioApo1: "", WrarioEws1: "" },
+        Δευτέρα: { Ergasia: "", Wrario: "", WresErgasias: "" },
+        Τρίτη: { Ergasia: "", Wrario: "", WresErgasias: "" },
+        Τετάρτη: { Ergasia: "", Wrario: "", WresErgasias: "" },
+        Πέμπτη: { Ergasia: "", Wrario: "", WresErgasias: "" },
+        Παρασκευή: { Ergasia: "", Wrario: "", WresErgasias: "" },
+        Σάββατο: { Ergasia: "", Wrario: "", WresErgasias: "" },
+        Κυριακή: { Ergasia: "", Wrario: "", WresErgasias: "" },
     };
     const [wraria, setWraria] = useState(initialWraria);
 
@@ -25,8 +25,10 @@ export default function Wraria() {
         setWraria(initialWraria);
     };
 
-    const timeOptions = [];
 
+    const handleTypeChange=(event)=>{
+        
+    }
     const daysOfWeek = ["Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο", "Κυριακή"];
     const handleErgasiaChange = (day, value) => {
         setWraria(prevState => ({
@@ -34,11 +36,22 @@ export default function Wraria() {
             [day]: {
                 ...prevState[day],
                 Ergasia: value,
-                Wrario: value === "Ρεπό/Ανάπαυση" ? "Ρεπό" : prevState[day].Wrario
+                Wrario: value === "Ρεπό/Ανάπαυση" ? "Ρεπό" : prevState[day].Wrario,
+                WresErgasias: value === "Ρεπό/Ανάπαυση" ? 0 : prevState[day].WresErgasias
             }
         }));
     };
-
+    
+    const handleWresErgasiasChange = (day, value) => {
+        setWraria(prevState => ({
+            ...prevState,
+            [day]: {
+                ...prevState[day],
+                WresErgasias: prevState[day].Ergasia === "Ρεπό/Ανάπαυση" ? 0 : value
+            }
+        }));
+    };
+    
     const exportExcel = () => {
         const table = document.getElementById('my-table');
         const workbook = XLSX.utils.table_to_book(table, { sheet: 'Sheet1' });
@@ -131,10 +144,8 @@ export default function Wraria() {
                             <tr>
                                 <th scope="col" className='thimerominia'>Ημερομηνία</th>
                                 <th scope="col" className='thmera'>Ημέρα</th>
-                                <th scope="col">Ανάλυση Τύπου Εργασίας</th>
-                                <th scope="col" className='thwresErg' style={{ width: '130px' }}>Ώρες Εργασίας</th>
-                                <th scope="col" className='time'>Εργασία από</th>
-                                <th scope="col" className='time'>Εργασία έως</th>
+                                <th scope="col" className='thTypos'>Ανάλυση Τύπου Εργασίας</th>
+                                <th scope="col" className='thwresErg'>Ώρες Εργασίας</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -153,19 +164,16 @@ export default function Wraria() {
                                     </td>
                                     <td>
                                         <div className='wres'>
-                                            <input type="number" className="form-control bg-white" />
+                                            <input 
+                                                type="number" 
+                                                className="form-control bg-white" 
+                                                value={wraria[day].WresErgasias} 
+                                                onChange={(e) => handleWresErgasiasChange(day, e.target.value)} 
+                                                disabled={wraria[day].Ergasia === "Ρεπό/Ανάπαυση"} 
+                                            />
                                         </div>
                                     </td>
-                                    <td>
-                                        <select className="form-select bg-white" value={wraria[day].WrarioApo1} onChange={(e) => handleTimeChange(day, 'WrarioApo1', e.target.value)} disabled={wraria[day].Ergasia !== "Εργασία"}>
-                                            {timeOptions}
-                                        </select>
-                                    </td>
-                                    <td>
-                                        <select className="form-select bg-white" value={wraria[day].WrarioEws1} onChange={(e) => handleTimeChange(day, 'WrarioEws1', e.target.value)} disabled={wraria[day].Ergasia !== "Εργασία"}>
-                                            {timeOptions}
-                                        </select>
-                                    </td>
+
                                 </tr>
                             ))}
                         </tbody>

@@ -49,10 +49,11 @@ export default function Sidebar() {
                     </button>
                 </li>
                 <div className={`dropdown-content ${dropdownOpen ? 'open' : ''}`}>
-                    <CustomLink to="/Action2">Μισθοδοσίες</CustomLink>
+                    <CustomLink to="/Misthodosia">Μισθοδοσίες</CustomLink>
                     <CustomLink to="/Wraria">Ωράρια</CustomLink>
                     <CustomLink to="/Action3">Action 3</CustomLink>
                 </div>
+                <CustomLink to="/MyProfile">Λογαριασμός</CustomLink>
             </ul>
             <button className="logout-btn" onClick={handleLogoutClick}>
                 Logout
