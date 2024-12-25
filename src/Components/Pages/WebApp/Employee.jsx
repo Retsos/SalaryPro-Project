@@ -2,6 +2,7 @@ import React, { useState, useContext, useRef } from 'react';
 import { EmployeeContext } from '../EmployeeProvider';
 import './Employee.css';
 import AfterSubmit from '../../Modals/AfterSubmit';
+import Sidebar from '../../Navbar/Sidebar';
 
 export default function Employee() {
 
@@ -147,6 +148,7 @@ export default function Employee() {
     }
     return (
         <>
+            <Sidebar/>
             <div className="content" ref={ref}>
                 <div className="container mt-3">
                     <h1 className="text-center" style={{ marginBottom: "5%",marginTop: "3%" }}>Στοιχεία Νέου Εργαζομένου</h1>

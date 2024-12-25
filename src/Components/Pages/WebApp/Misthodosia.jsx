@@ -1,4 +1,4 @@
-
+import Sidebar from "../../Navbar/Sidebar"
 
 
 export default function Misthodosia(){
@@ -13,6 +13,7 @@ export default function Misthodosia(){
     
     return (
         <>
+            <Sidebar/>
 
         
         

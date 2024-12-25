@@ -16,11 +16,11 @@ function App() {
     <UserProvider>
       <Routes>
         <Route path='/Home' element={<Home />} />
-        <Route path='/Employee' element={<MainPage><Employee /></MainPage>} />
-        <Route path='/Employers' element={<MainPage><Employers /></MainPage>} />
-        <Route path='/Wraria' element={<MainPage><Wraria /></MainPage>} />
-        <Route path='/Misthodosia' element={<MainPage><Misthodosia /></MainPage>} />
-        <Route path='/MyProfile' element={<MainPage><MyProfile /></MainPage>} />
+        <Route path='/Employee' element={<Employee />} />
+        <Route path='/Employers' element={<Employers />} />
+        <Route path='/Wraria' element={<Wraria />} />
+        <Route path='/Misthodosia' element={<Misthodosia />} />
+        <Route path='/MyProfile' element={<MyProfile />} />
         <Route path='/Contact' element={<Contact />} />
         <Route path='/LoginPage' element={<LoginPage />} />
         <Route path='/MainPage' element={<MainPage />} />

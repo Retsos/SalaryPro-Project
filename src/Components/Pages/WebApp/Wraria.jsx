@@ -4,6 +4,7 @@ import { EmployeeContext } from '../EmployeeProvider';
 import * as XLSX from 'xlsx';
 import html2pdf from 'html2pdf.js';
 import { BsExclamationCircleFill } from "react-icons/bs";
+import Sidebar from '../../Navbar/Sidebar';
 
 export default function Wraria() {
     const { Ypalliloi } = useContext(EmployeeContext);
@@ -84,7 +85,8 @@ export default function Wraria() {
     
 
     return (
-        <>
+        <>  
+            <Sidebar/>
             <div className="content" style={{marginBottom: "2%"}}>
                 <div className="container mt-3">
                     <h1 className="text-center" style={{ marginBottom: "5%" }}>Ωράρια Εργαζομένων</h1>

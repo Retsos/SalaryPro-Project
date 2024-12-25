@@ -1,0 +1,6 @@
+.content {
+    overflow-y: auto;
+    cursor: default;
+    width: 85%;
+    margin-left: 15%;
+  }

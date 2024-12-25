@@ -1,8 +1,9 @@
 .content {
-    flex-grow: 1;
-    padding: 20px;
     overflow-y: auto;
-}
+    cursor: default;
+    width: 85%;
+    margin-left: 15%;
+  }
 .custome-table {
     margin-top: 10%;
     max-width: 95%;

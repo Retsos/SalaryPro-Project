@@ -3,7 +3,7 @@ import { EmployeeContext } from '../EmployeeProvider.jsx';
 import EidosDiagrafis from '../../Modals/EidosDiagrafis.jsx';
 import DataChange from '../../Modals/DataChange.jsx';
 import './Employers.css';
-
+import Sidebar from '../../Navbar/Sidebar.jsx';
 export default function Employers() {
     const { Ypalliloi, setYpalliloi } = useContext(EmployeeContext);
     const [showModal, setShowModal] = useState(false);
@@ -43,7 +43,8 @@ export default function Employers() {
     const selectedYpallilos = selectedIndex !== null ? Ypalliloi[selectedIndex] : null;
 
     return (
-        <>
+        <> 
+                    <Sidebar/>
             <div className="content">
 
                 <div className="container mt-3">
