@@ -5,7 +5,6 @@ import Employers from './Components/Pages/WebApp/Employers';
 import LoginPage from './Components/Pages/Website/LoginPage';
 import Contact from './Components/Pages/Website/Contact';
 import { Routes, Route } from 'react-router-dom';
-import MainPage from './Components/Pages/WebApp/MainPage';
 import { UserProvider } from './Components/Pages/UsernameContext';
 import Wraria from './Components/Pages/WebApp/Wraria';  
 import Misthodosia from './Components/Pages/WebApp/Misthodosia';
@@ -23,7 +22,6 @@ function App() {
         <Route path='/MyProfile' element={<MyProfile />} />
         <Route path='/Contact' element={<Contact />} />
         <Route path='/LoginPage' element={<LoginPage />} />
-        <Route path='/MainPage' element={<MainPage />} />
       </Routes>
     </UserProvider>
   );
