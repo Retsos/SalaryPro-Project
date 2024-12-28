@@ -26,10 +26,6 @@ export default function Wraria() {
         setWraria(initialWraria);
     };
 
-
-    const handleTypeChange=(event)=>{
-        
-    }
     const daysOfWeek = ["Δευτέρα", "Τρίτη", "Τετάρτη", "Πέμπτη", "Παρασκευή", "Σάββατο", "Κυριακή"];
     const handleErgasiaChange = (day, value) => {
         setWraria(prevState => ({
@@ -52,6 +48,7 @@ export default function Wraria() {
             }
         }));
     };
+
     
     const exportExcel = () => {
         const table = document.getElementById('my-table');
@@ -83,7 +80,19 @@ export default function Wraria() {
         html2pdf().from(clonedElement).set(opt).save();
     };
     
+    const FindWeeklyHours = () => {
+        return Object.values(wraria).reduce((total, day) => {
+            return total + (Number(day.WresErgasias) || 0); // Άθροισμα μόνο αριθμών
+        }, 0);
+    };
+    
+    const weeklyHours = FindWeeklyHours(); // Υπολογισμός συνόλου ωρών
+    const message =
+        weeklyHours > 40
+            ? "Οι ώρες εργασίας υπερβαίνουν τις 40! Παρακαλώ ελέγξτε το πρόγραμμά σας."
+            : `Σύνολο Ωρών Εργασίας: ${weeklyHours}`;
 
+    
     return (
         <>  
             <Sidebar/>
@@ -181,6 +190,10 @@ export default function Wraria() {
                         </tbody>
                     </table>
                 </div>
+                <div>
+                    <label className='form-label-lg'>{message}</label>
+                </div>
+
                 <div className="text-center mt-4 mb-3" >
                     <button type="submit" className="btn btn-primary btn-lg">Αποθήκευση</button>
                 </div>

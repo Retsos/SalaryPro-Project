@@ -1,8 +1,11 @@
 .content {
-  overflow-y: auto;
   cursor: default;
   width: 85%;
   margin-left: 15%;
+  padding: 0px 20px 0px 20px ;
+}
+.Sidebar{
+  width: 15%;
 }
 .mb-3 input[type="number"]::-webkit-outer-spin-button,
 .mb-3 input[type="number"]::-webkit-inner-spin-button {
@@ -42,4 +45,16 @@
   pointer-events: none; 
   opacity: 0.5; 
   cursor: none;
+}
+/* Extra small devices (phones, 600px and down) */
+@media only screen and (max-width: 490px) {
+  .content {
+      margin-left: 25%;
+  }
+}
+/* Small devices (portrait tablets and large phones, 600px and up) */
+@media only screen and (max-width: 768px) {
+  .content {
+      margin-left: 25%;
+  }
 }

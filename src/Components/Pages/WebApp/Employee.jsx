@@ -3,9 +3,11 @@ import { EmployeeContext } from '../EmployeeProvider';
 import './Employee.css';
 import AfterSubmit from '../../Modals/AfterSubmit';
 import Sidebar from '../../Navbar/Sidebar';
+import {  useNavigate } from 'react-router-dom';
 
 export default function Employee() {
-
+    
+    const navigate = useNavigate();
     const [showModal2, setShowModal2] = useState(false);
     const {setYpalliloi } = useContext(EmployeeContext);
     const [name, setName] = useState("");
@@ -41,7 +43,6 @@ export default function Employee() {
             Yname: name,
             Yepitheto: epitheto,
             Ycode: code,
-            Yfathername: fathername
         };
         setYpalliloi(prevYpalliloi => [...prevYpalliloi, NewYpallilos]);
     }
@@ -127,14 +128,14 @@ export default function Employee() {
     }
     const getDisabledClass = (isEnabled) => (isEnabled ? '' : 'disabled-field');
 
-    function handleSubmit(event) {
+    /*function handleSubmit(event) {
         event.preventDefault();
         if (name && epitheto && code) {
             handleAddYpallilos();
             setName("");
             setEpitheto("");
             setCode("");
-            setfathername("");
+            console.log("hello")
             setShowModal2(true);    
             console.log("hello")
             ref.current.scrollTo({
@@ -142,10 +143,15 @@ export default function Employee() {
                 behavior: 'smooth'
             })
             console.log("true")
-        } else {
+        }
+         else {
             console.log("ERROR");
         }
-    }
+    }*/
+    
+    const handleNextPage = () => {
+        navigate('/Employee2');
+    };
     return (
         <>
             <Sidebar/>
@@ -154,7 +160,7 @@ export default function Employee() {
                     <h1 className="text-center" style={{ marginBottom: "5%",marginTop: "3%" }}>Στοιχεία Νέου Εργαζομένου</h1>
                 </div>
                 <div className="container-fluid">
-                    <form onSubmit={handleSubmit}>
+                    <form>
                         <div className="row justify-content-center">
 
                             <div className="col-12">
@@ -305,7 +311,7 @@ export default function Employee() {
 
                         </div>
                         <div className="text-center mt-4 mb-3">
-                            <button type="submit" className="btn btn-primary btn-lg">Δημιουργία</button>
+                            <button type="button" className="btn btn-primary btn-lg" onClick={handleNextPage}>Επόμενη Σελίδα</button>
                         </div>
                     </form>
                 </div>

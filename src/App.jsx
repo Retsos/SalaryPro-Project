@@ -9,13 +9,15 @@ import { UserProvider } from './Components/Pages/UsernameContext';
 import Wraria from './Components/Pages/WebApp/Wraria';  
 import Misthodosia from './Components/Pages/WebApp/Misthodosia';
 import MyProfile from './Components/Pages/WebApp/MyProfile'
+import Employee2 from './Components/Pages/WebApp/Employee2';
 
 function App() {
   return (
     <UserProvider>
       <Routes>
-        <Route path='/Home' element={<Home />} />
+        <Route path='/Home' element={<Home />} /> 
         <Route path='/Employee' element={<Employee />} />
+        <Route path='/Employee2' element={<Employee2 />} />
         <Route path='/Employers' element={<Employers />} />
         <Route path='/Wraria' element={<Wraria />} />
         <Route path='/Misthodosia' element={<Misthodosia />} />
