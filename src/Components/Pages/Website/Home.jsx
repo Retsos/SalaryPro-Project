@@ -6,8 +6,11 @@ export default function Home(){
     return(
         <>           
             <Navbar/>
-            <Cards/>
-            <Footer/>
+            <div className='page'>
+                <Cards/>
+                <Footer/>
+            </div>
+
         </>
     )
 }

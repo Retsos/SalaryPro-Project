@@ -10,12 +10,14 @@ import Wraria from './Components/Pages/WebApp/Wraria';
 import Misthodosia from './Components/Pages/WebApp/Misthodosia';
 import MyProfile from './Components/Pages/WebApp/MyProfile'
 import Employee2 from './Components/Pages/WebApp/Employee2';
+import CreateAcc from './Components/Pages/Website/CreateAcc';
 
 function App() {
   return (
     <UserProvider>
       <Routes>
         <Route path='/Home' element={<Home />} /> 
+        <Route path='/CreateAcc' element={<CreateAcc />} /> 
         <Route path='/Employee' element={<Employee />} />
         <Route path='/Employee2' element={<Employee2 />} />
         <Route path='/Employers' element={<Employers />} />
