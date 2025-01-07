@@ -17,8 +17,7 @@
     -webkit-appearance: none;
     margin: 0;
 }
-/* AFAIRESA THN AFAIRESI TIS EPILOGIS APO TO HMEROLOGIO KATW ARISTERA*/
-.form-control {
+  .form-control {
     background: transparent;
     border: none;
     border: 1px solid #ccc; 

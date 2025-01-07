@@ -41,8 +41,8 @@ export default function Navbar() {
                     <div className="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul className="navbar-nav justify-content-center">
                             <CustomLink to="/Home">Αρχική</CustomLink>
-                            <CustomLink to="/Contact">Επικοινωνία</CustomLink>
                             <CustomLink to="/CreateAcc">Δημιούργησε Λογαριασμό</CustomLink>
+                            <CustomLink to="/Contact">Επικοινωνία</CustomLink>
                         </ul>
                         <button className="login ms-auto" onClick={handleLoginClick}>Login</button>
                     </div>

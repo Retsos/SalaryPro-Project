@@ -44,7 +44,7 @@ export default function Employers() {
 
     return (
         <> 
-                    <Sidebar/>
+            <Sidebar/>
             <div className="content">
 
                 <div className="container mt-3">

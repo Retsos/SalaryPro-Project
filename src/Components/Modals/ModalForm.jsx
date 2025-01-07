@@ -117,12 +117,12 @@ export default function ModalForm() {
               </div>
               <div className='forgot-checkbox'>
                 <input type="checkbox" id='RememberMe' />
-                <label htmlFor="RememberMe">Remember me</label>
-                <Link to="#" className="btn forgot">Forgot Password?</Link>
+                <label htmlFor="RememberMe">Να με θυμάσαι</label>
+                <Link to="#" className="btn forgot">Ξέχασες τον κωδικό σου?</Link>
               </div>
               <div className="modal-footer modalbtn">
                 <div className="d-flex justify-content-center w-100">
-                  <button className="btn py-2 btnlogin" type="submit">Login</button>
+                  <button className="btn py-2 btnlogin" type="submit">Είσοδος</button>
                 </div>
               </div>
             </form>
@@ -130,8 +130,8 @@ export default function ModalForm() {
           <div className="modal-footer">
             <div className="d-flex justify-content-center w-100">
               <span className='spantext'>
-                Don't have an account?
-                <button to="#" onClick={GoToCreateAcc} className="btn btn-link btnlogin2">Sign Up</button>
+                Δεν έχεις λογαριασμό?
+                <button to="#" onClick={GoToCreateAcc} className="btn btn-link btnlogin2">Δημιουργία</button>
               </span>
             </div>
           </div>

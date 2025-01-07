@@ -146,7 +146,6 @@ export default function Wraria() {
                         <BsExclamationCircleFill size={20} color='red' title='Τα προγραμματα αποθηκεύονται έως και 2 χρόνια' />
                     </div>
                 </div>
-
                 {/* Ο πίνακας */}
 
                 <div ref={pdfRef} id="my-table" style={{ marginTop: "20px" }}>
