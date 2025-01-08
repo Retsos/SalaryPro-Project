@@ -1,0 +1,33 @@
+.btngroup {
+    display: flex;
+    justify-content: center; /* Κεντράρει τα κουμπιά */
+    align-items: center;    /* Κεντράρει κάθετα */
+    gap: 20px;              /* Απόσταση μεταξύ των κουμπιών */
+    margin-top: 50px;       /* Περιθώριο πάνω */
+    margin-bottom: 2rem;
+}
+
+.buttonleft {
+    padding: 10px 20px;     /* Εσωτερικό padding για το κουμπί "Πίσω" */
+    font-size: 16px;        /* Μέγεθος γραμματοσειράς */
+    color: white;
+    border-radius: 5px;
+    background-color: rgb(207, 36, 36);
+    width: 100px;
+}
+.buttonleft:hover{  
+    color: white;
+    background-color: rgba(207, 36, 36, 0.834);
+}
+.buttonright:hover{
+    color: white;
+    background-color: #008000b7;
+}
+
+.buttonright{
+    padding: 10px 20px;     /* Εσωτερικό padding για το κουμπί "Πίσω" */
+    font-size: 16px;        /* Μέγεθος γραμματοσειράς */
+    border-radius: 5px;     
+    color: white;
+    background-color: green;
+}
